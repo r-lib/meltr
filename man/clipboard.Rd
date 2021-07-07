@@ -7,8 +7,8 @@
 clipboard()
 }
 \description{
-This is useful in the \code{\link[=read_delim]{read_delim()}} functions to read from the clipboard.
+This is useful in the \code{\link[readr:read_delim]{readr::read_delim()}} functions to read from the clipboard.
 }
 \seealso{
-read_delim
+readr::read_delim
 }

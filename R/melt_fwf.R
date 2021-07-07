@@ -10,7 +10,7 @@
 #' source file.
 #'
 #' @seealso [melt_table()] to melt fixed width files where each
-#'   column is separated by whitespace, and [read_fwf()] for the conventional
+#'   column is separated by whitespace, and [melt_fwf()] for the conventional
 #'   way to read rectangular data from fixed width files.
 #' @inheritParams readr::read_fwf
 #' @param col_positions Column positions, as created by [fwf_empty()],
@@ -18,7 +18,6 @@
 #'   use [fwf_positions()]. If the width of the last column is variable (a
 #'   ragged fwf file), supply the last end position as NA.
 #' @export
-#' @importFrom readr fwf_empty fwf_widths fwf_positions fwf_cols
 #' @examples
 #' fwf_sample <- readr_example("fwf-sample.txt")
 #' cat(readr::read_lines(fwf_sample))
@@ -73,7 +72,7 @@ fwf_empty <- function(file, skip = 0, skip_empty_rows = FALSE, col_names = NULL,
   out
 }
 
-#' @rdname read_fwf
+#' @rdname melt_fwf
 #' @export
 #' @param widths Width of each field. Use NA as width of last field when
 #'    reading a ragged fwf file.
@@ -83,7 +82,7 @@ fwf_widths <- function(widths, col_names = NULL) {
   fwf_positions(pos[-length(pos)], pos[-1] - 1L, col_names)
 }
 
-#' @rdname read_fwf
+#' @rdname melt_fwf
 #' @export
 #' @param start,end Starting and ending (inclusive) positions of each field.
 #'    Use NA as last end field when reading a ragged fwf file.
@@ -99,7 +98,7 @@ fwf_positions <- function(start, end = NULL, col_names = NULL) {
 }
 
 
-#' @rdname read_fwf
+#' @rdname melt_fwf
 #' @export
 #' @param ... If the first element is a data frame,
 #'   then it must have all numeric columns and either one or two rows.

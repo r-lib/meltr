@@ -29,9 +29,6 @@
 #'   "US/Eastern", "US/Central" etc.
 #' @param encoding Default encoding. This only affects how the file is
 #'   read - readr always converts the output to UTF-8.
-#' @param asciify Should diacritics be stripped from date names and converted to
-#'   ASCII? This is useful if you're dealing with ASCII data where the correct
-#'   spellings have been lost. Requires the \pkg{stringi} package.
 #' @export
 #' @examples
 #' locale()
@@ -42,15 +39,11 @@
 locale <- function(date_names = "en",
                    date_format = "%AD", time_format = "%AT",
                    decimal_mark = ".", grouping_mark = ",",
-                   tz = "UTC", encoding = "UTF-8",
-                   asciify = FALSE) {
+                   tz = "UTC", encoding = "UTF-8") {
   if (is.character(date_names)) {
     date_names <- date_names_lang(date_names)
   }
   stopifnot(is.date_names(date_names))
-  if (asciify) {
-    date_names[] <- lapply(date_names, stringi::stri_trans_general, id = "latin-ascii")
-  }
 
   if (missing(grouping_mark) && !missing(decimal_mark)) {
     grouping_mark <- if (decimal_mark == ".") "," else "."

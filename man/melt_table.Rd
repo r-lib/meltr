@@ -100,6 +100,6 @@ melt_table(epa)
 \seealso{
 \code{\link[=melt_fwf]{melt_fwf()}} to melt fixed width files where each column
 is not separated by whitespace. \code{melt_fwf()} is also useful for reading
-tabular data with non-standard formatting.  \code{\link[=read_table]{read_table()}} is the
+tabular data with non-standard formatting.  \code{\link[readr:read_table]{readr::read_table()}} is the
 conventional way to read tabular data from whitespace-separated files.
 }

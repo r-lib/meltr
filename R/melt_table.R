@@ -17,7 +17,7 @@
 #'
 #' @seealso [melt_fwf()] to melt fixed width files where each column
 #'   is not separated by whitespace. `melt_fwf()` is also useful for reading
-#'   tabular data with non-standard formatting.  [read_table()] is the
+#'   tabular data with non-standard formatting.  [readr::read_table()] is the
 #'   conventional way to read tabular data from whitespace-separated files.
 #' @inheritParams readr::read_table
 #' @export

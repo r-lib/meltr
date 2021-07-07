@@ -2,7 +2,7 @@
 #'
 #' Explicitly create tokenizer objects. Usually you will not call these
 #' function, but will instead use one of the use friendly wrappers like
-#' [read_csv()].
+#' [readr::read_csv()].
 #'
 #' @keywords internal
 #' @name Tokenizers

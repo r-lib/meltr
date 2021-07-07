@@ -1,5 +1,5 @@
 Package: meltr
-Title: What the Package Does (One Line, Title Case)
+Title: Read Non-Rectangular Text Data
 Version: 0.0.0.9000
 Authors@R: 
     c(person(given = "Jim",
@@ -9,15 +9,30 @@ Authors@R:
              comment = c(ORCID = "0000-0002-2739-7082")),
       person(given = "RStudio",
              role = c("cph", "fnd")))
-Description: What the package does (one paragraph).
-LinkingTo: cpp11, tzdb
+Description: The goal of 'meltr' is to provide a fast and friendly way to
+    read non-rectangular data (like ragged forms of 'csv', 'tsv', and
+    'fwf').
 License: MIT + file LICENSE
+Depends: 
+    R (>= 2.10)
+Imports: 
+    cli,
+    methods,
+    R6,
+    tibble,
+    tzdb
+Suggests: 
+    clipr,
+    crayon,
+    curl,
+    readr,
+    testthat (>= 3.0.0),
+    withr
+LinkingTo: 
+    cpp11,
+    tzdb
+Config/testthat/edition: 3
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.1
-Depends: 
-    R (>= 2.10)
-Suggests: 
-    testthat (>= 3.0.0)
-Config/testthat/edition: 3

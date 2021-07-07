@@ -3,6 +3,9 @@
 \name{melt_fwf}
 \alias{melt_fwf}
 \alias{fwf_empty}
+\alias{fwf_widths}
+\alias{fwf_positions}
+\alias{fwf_cols}
 \title{Return melted data for each token in a fixed width file}
 \usage{
 melt_fwf(
@@ -26,6 +29,12 @@ fwf_empty(
   comment = "",
   n = 100L
 )
+
+fwf_widths(widths, col_names = NULL)
+
+fwf_positions(start, end = NULL, col_names = NULL)
+
+fwf_cols(...)
 }
 \arguments{
 \item{file}{Either a path to a file, a connection, or literal data
@@ -80,6 +89,19 @@ option is \code{TRUE} then blank rows will not be represented at all.  If it is
 
 \item{n}{Number of lines the tokenizer will read to determine file structure. By default
 it is set to 100.}
+
+\item{widths}{Width of each field. Use NA as width of last field when
+reading a ragged fwf file.}
+
+\item{start, end}{Starting and ending (inclusive) positions of each field.
+Use NA as last end field when reading a ragged fwf file.}
+
+\item{...}{If the first element is a data frame,
+then it must have all numeric columns and either one or two rows.
+The column names are the variable names. The column values are the
+variable widths if a length one vector, and if length two, variable start and end
+positions. The elements of \code{...} are used to construct a data frame
+with or or two rows as above.}
 }
 \description{
 For certain non-rectangular data formats, it can be useful to parse the data
@@ -108,6 +130,6 @@ melt_fwf(fwf_sample, fwf_cols(name = 20, state = 10, ssn = 12))
 }
 \seealso{
 \code{\link[=melt_table]{melt_table()}} to melt fixed width files where each
-column is separated by whitespace, and \code{\link[=read_fwf]{read_fwf()}} for the conventional
+column is separated by whitespace, and \code{\link[=melt_fwf]{melt_fwf()}} for the conventional
 way to read rectangular data from fixed width files.
 }

@@ -133,28 +133,6 @@ is_named <- function(x) {
   all(nms != "" & !is.na(nms))
 }
 
-utctime <- function(year, month, day, hour, min, sec, psec) {
-  utctime_(
-    as.integer(year), as.integer(month), as.integer(day),
-    as.integer(hour), as.integer(min), as.integer(sec), as.numeric(psec)
-  )
-}
-
-cli_block <- function(expr, class = NULL, type = rlang::inform) {
-  msg <- ""
-  withCallingHandlers(
-    expr,
-    message = function(x) {
-      msg <<- paste0(msg, x$message)
-      invokeRestart("muffleMessage")
-    }
-  )
-  type(msg, class = class)
-}
-
-readr_enquo <- function(x) {
-  if (rlang::quo_is_call(x, "c") || rlang::quo_is_call(x, "list")) {
-    return(rlang::as_quosures(rlang::get_expr(x)[-1], rlang::get_env(x)))
-  }
-  x
+.onLoad <- function(...) {
+  tzdb::tzdb_initialize()
 }

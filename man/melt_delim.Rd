@@ -175,6 +175,6 @@ melt_tsv("a\tb\n1.0\t2.0")
 melt_delim("a|b\n1.0|2.0", delim = "|")
 }
 \seealso{
-\code{\link[=read_delim]{read_delim()}} for the conventional way to read rectangular data
+\code{\link[readr:read_delim]{readr::read_delim()}} for the conventional way to read rectangular data
 from delimited files.
 }

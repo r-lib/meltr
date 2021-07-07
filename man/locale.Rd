@@ -12,8 +12,7 @@ locale(
   decimal_mark = ".",
   grouping_mark = ",",
   tz = "UTC",
-  encoding = "UTF-8",
-  asciify = FALSE
+  encoding = "UTF-8"
 )
 
 default_locale()
@@ -46,10 +45,6 @@ DST. It is \emph{not} Eastern Standard Time. It's better to use
 
 \item{encoding}{Default encoding. This only affects how the file is
 read - readr always converts the output to UTF-8.}
-
-\item{asciify}{Should diacritics be stripped from date names and converted to
-ASCII? This is useful if you're dealing with ASCII data where the correct
-spellings have been lost. Requires the \pkg{stringi} package.}
 }
 \description{
 A locale object tries to capture all the defaults that can vary between

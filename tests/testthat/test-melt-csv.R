@@ -1,4 +1,4 @@
-test_that("read_csv type imputation and NA detection works", {
+test_that("melt_csv type imputation and NA detection works", {
   skip_on_os("windows")
   melt_data <- melt_csv("non-tabular.csv", na = "NA")
   expect_equal(
@@ -7,7 +7,7 @@ test_that("read_csv type imputation and NA detection works", {
   )
 })
 
-test_that("read_tsv works on a simple file", {
+test_that("melt_tsv works on a simple file", {
   melt_data <- melt_tsv("a\tb\n1\t2")
   expect_equal(melt_data$data_type, rep(c("character", "integer"), each = 2))
 })
@@ -95,7 +95,7 @@ test_that("missing lines are not skipped", {
   expect_equal(max(melt_csv("a,b\n1,2\n\n\n")$row), 4)
 })
 
-# read_csv2 ---------------------------------------------------------------
+# melt_csv2 ---------------------------------------------------------------
 
 test_that("decimal mark automatically set to ,", {
   expect_message(

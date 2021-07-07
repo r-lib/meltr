@@ -106,3 +106,5 @@ melt_csv2_chunked <- generate_melt_chunked_fun(melt_csv2)
 #' @rdname melt_delim_chunked
 #' @export
 melt_tsv_chunked <- generate_melt_chunked_fun(melt_tsv)
+
+utils::globalVariables(c("callback", "chunk_size"))

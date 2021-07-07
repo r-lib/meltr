@@ -93,7 +93,7 @@ offsets so the first column is column zero, and the ranges are
 \description{
 Explicitly create tokenizer objects. Usually you will not call these
 function, but will instead use one of the use friendly wrappers like
-\code{\link[=read_csv]{read_csv()}}.
+\code{\link[readr:read_delim]{readr::read_csv()}}.
 }
 \examples{
 tokenizer_csv()

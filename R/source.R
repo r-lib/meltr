@@ -231,8 +231,8 @@ empty_file <- function(x) {
 
 #' Returns values from the clipboard
 #'
-#' This is useful in the [read_delim()] functions to read from the clipboard.
-#' @seealso read_delim
+#' This is useful in the [readr::read_delim()] functions to read from the clipboard.
+#' @seealso readr::read_delim
 #' @export
 clipboard <- function() {
   I(paste0(clipr::read_clip(), collapse = "\n"))

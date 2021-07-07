@@ -39,8 +39,6 @@ problems <- local({
     if (inherits(problems, "tbl_df")) {
       return(problems)
     }
-
-    vroom::problems(x)
   }
 })
 

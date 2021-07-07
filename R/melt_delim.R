@@ -19,7 +19,7 @@
 #'
 #'   If there are parsing problems, a warning tells you
 #'   how many, and you can retrieve the details with [problems()].
-#' @seealso [read_delim()] for the conventional way to read rectangular data
+#' @seealso [readr::read_delim()] for the conventional way to read rectangular data
 #' from delimited files.
 #' @export
 #' @examples
@@ -86,8 +86,9 @@ melt_csv2 <- function(file, locale = default_locale(), na = c("", "NA"),
                       trim_ws = TRUE, skip = 0, n_max = Inf,
                       progress = show_progress(),
                       skip_empty_rows = FALSE) {
+
   if (locale$decimal_mark == ".") {
-    cli::cli_alert_info("Using {.val ','} as decimal and {.val '.'} as grouping mark. Use {.fn read_delim} for more control.")
+    cli::cli_alert_info("Using {.val ','} as decimal and {.val '.'} as grouping mark. Use {.fn melt_delim} for more control.")
     locale$decimal_mark <- ","
     locale$grouping_mark <- "."
   }
