@@ -4,7 +4,8 @@
 [![R-CMD-check](https://github.com/jimhester/meltr/workflows/R-CMD-check/badge.svg)](https://github.com/jimhester/meltr/actions)
 <!-- badges: end -->
 
-The goal of meltr is to ...
+The goal of 'meltr' is to provide a fast and friendly way to read
+non-rectangular data (like ragged forms of 'csv', 'tsv', and 'fwf').
 
 ## Installation
 
