@@ -2,6 +2,7 @@
 % Please edit documentation in R/melt_fwf.R
 \name{melt_fwf}
 \alias{melt_fwf}
+\alias{fwf_empty}
 \title{Return melted data for each token in a fixed width file}
 \usage{
 melt_fwf(
@@ -15,6 +16,15 @@ melt_fwf(
   n_max = Inf,
   progress = show_progress(),
   skip_empty_rows = FALSE
+)
+
+fwf_empty(
+  file,
+  skip = 0,
+  skip_empty_rows = FALSE,
+  col_names = NULL,
+  comment = "",
+  n = 100L
 )
 }
 \arguments{
@@ -65,6 +75,11 @@ progress bar can be disabled by setting option \code{readr.show_progress} to
 \item{skip_empty_rows}{Should blank rows be ignored altogether? i.e. If this
 option is \code{TRUE} then blank rows will not be represented at all.  If it is
 \code{FALSE} then they will be represented by \code{NA} values in all the columns.}
+
+\item{col_names}{Either NULL, or a character vector column names.}
+
+\item{n}{Number of lines the tokenizer will read to determine file structure. By default
+it is set to 100.}
 }
 \description{
 For certain non-rectangular data formats, it can be useful to parse the data
