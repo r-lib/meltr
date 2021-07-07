@@ -20,5 +20,19 @@ This is a basic example which shows you how to solve a common problem:
 
 ``` r
 library(meltr)
-## basic example code
+melt_csv(readr_example("mtcars.csv"))
+melt_csv(readr_example("mtcars.csv.zip"))
+melt_csv(readr_example("mtcars.csv.bz2"))
+
+# Or directly from a string (must contain a newline)
+melt_csv("x,y\n1,2\n3,4")
+
+# To import empty cells as 'empty' rather than `NA`
+melt_csv("x,y\n,NA,\"\",''", na = "NA")
+
+# File types ----------------------------------------------------------------
+melt_csv("a,b\n1.0,2.0")
+melt_csv2("a;b\n1,0;2,0")
+melt_tsv("a\tb\n1.0\t2.0")
+melt_delim("a|b\n1.0|2.0", delim = "|")
 ```
