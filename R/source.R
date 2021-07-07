@@ -235,9 +235,6 @@ empty_file <- function(x) {
 #' @seealso read_delim
 #' @export
 clipboard <- function() {
-  if (edition_first()) {
-    return(clipr::read_clip())
-  }
   I(paste0(clipr::read_clip(), collapse = "\n"))
 }
 
