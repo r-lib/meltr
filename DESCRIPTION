@@ -22,6 +22,7 @@ Imports:
     tibble,
     tzdb
 Suggests: 
+    covr,
     clipr,
     crayon,
     curl,
