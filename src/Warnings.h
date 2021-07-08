@@ -1,5 +1,5 @@
-#ifndef READ_WARNINGS_H_
-#define READ_WARNINGS_H_
+#ifndef MELTR_WARNINGS_H_
+#define MELTR_WARNINGS_H_
 
 #include "cpp11/data_frame.hpp"
 #include "cpp11/sexp.hpp"

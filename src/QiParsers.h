@@ -1,5 +1,5 @@
-#ifndef FASTREAD_QI_PARSERS
-#define FASTREAD_QI_PARSERS
+#ifndef MELTR_QI_PARSERS
+#define MELTR_QI_PARSERS
 
 #include "Rinternals.h"
 

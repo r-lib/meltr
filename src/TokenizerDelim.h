@@ -1,5 +1,5 @@
-#ifndef FASTREAD_TOKENIZEDELIM_H_
-#define FASTREAD_TOKENIZEDELIM_H_
+#ifndef MELTR_TOKENIZEDELIM_H_
+#define MELTR_TOKENIZEDELIM_H_
 #include "cpp11/R.hpp"
 
 #include "Token.h"

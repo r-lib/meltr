@@ -1,5 +1,5 @@
-#ifndef FASTREAD_TOKENIZER_H_
-#define FASTREAD_TOKENIZER_H_
+#ifndef MELTR_TOKENIZER_H_
+#define MELTR_TOKENIZER_H_
 
 #include "cpp11/R.hpp"
 #include "cpp11/list.hpp"

@@ -1,5 +1,5 @@
-#ifndef FASTREAD_TOKEN_H_
-#define FASTREAD_TOKEN_H_
+#ifndef MELTR_TOKEN_H_
+#define MELTR_TOKEN_H_
 
 #include "cpp11/raws.hpp"
 

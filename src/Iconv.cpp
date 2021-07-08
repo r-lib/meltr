@@ -69,15 +69,15 @@ int my_strnlen(const char* s, int maxlen) {
 }
 
 #if defined(__sun)
-#define readr_strnlen my_strnlen
+#define meltr_strnlen my_strnlen
 #else
-#define readr_strnlen strnlen
+#define meltr_strnlen strnlen
 #endif
 
 // To be safe, we need to check for nulls - this also needs to emit
 // a warning, but this behaviour is better than crashing
 SEXP safeMakeChar(const char* start, size_t n, bool hasNull) {
-  size_t m = hasNull ? readr_strnlen(start, n) : n;
+  size_t m = hasNull ? meltr_strnlen(start, n) : n;
   if (m > INT_MAX) {
     cpp11::stop("R character strings are limited to 2^31-1 bytes");
   }

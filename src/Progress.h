@@ -1,5 +1,5 @@
-#ifndef FASTREAD_PROGRESS_H_
-#define FASTREAD_PROGRESS_H_
+#ifndef MELTR_PROGRESS_H_
+#define MELTR_PROGRESS_H_
 
 #include "cpp11/R.hpp"
 #include <iomanip>

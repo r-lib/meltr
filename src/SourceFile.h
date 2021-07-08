@@ -1,5 +1,5 @@
-#ifndef FASTREAD_SOURCEFILE_H_
-#define FASTREAD_SOURCEFILE_H_
+#ifndef MELTR_SOURCEFILE_H_
+#define MELTR_SOURCEFILE_H_
 
 #include "Source.h"
 #include "cpp11/protect.hpp"

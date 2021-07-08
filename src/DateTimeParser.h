@@ -1,5 +1,5 @@
-#ifndef FASTREAD_DATE_TIME_PARSER_H_
-#define FASTREAD_DATE_TIME_PARSER_H_
+#ifndef MELTR_DATE_TIME_PARSER_H_
+#define MELTR_DATE_TIME_PARSER_H_
 
 #include "LocaleInfo.h"
 #include "QiParsers.h"
@@ -37,7 +37,7 @@ public:
   // Parse ISO8601 date time. In benchmarks this only seems ~30% faster than
   // parsing with a format string so it doesn't seem necessary to add individual
   // parsers for other common formats.
-  bool parseISO8601(bool partial = true) {
+  bool parseISO8601() {
     // Date: YYYY-MM-DD, YYYYMMDD
     if (!consumeInteger(4, &year_))
       return false;

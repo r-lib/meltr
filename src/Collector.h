@@ -1,5 +1,6 @@
-#ifndef FASTREAD_COLLECTOR_H_
-#define FASTREAD_COLLECTOR_H_
+#ifndef MELTR_COLLECTOR_H_
+#define MELTR_COLLECTOR_H_
+
 #include "cpp11/doubles.hpp"
 #include "cpp11/integers.hpp"
 #include "cpp11/list.hpp"
@@ -31,8 +32,8 @@ public:
   virtual ~Collector(){};
 
   virtual void setValue(int i, const Token& t) = 0;
-  virtual void setValue(int i, const std::string& s){}; // nocov
-  virtual void setValue(int i, size_t st){};            // nocov
+  virtual void setValue(int /* unused */, const std::string& /* unused */){}; // nocov
+  virtual void setValue(int /* unused */, size_t /* unused */ ){};            // nocov
 
   virtual cpp11::sexp vector() { return column_; };
 
@@ -143,13 +144,11 @@ public:
 };
 
 class CollectorDouble : public Collector {
-  char decimalMark_;
 
 public:
-  CollectorDouble(char decimalMark)
-      : Collector(cpp11::writable::doubles(R_xlen_t(0))),
-        decimalMark_(decimalMark) {}
-  void setValue(int i, const Token& t) { /* unused */ };
+  CollectorDouble(char /* unused */)
+      : Collector(cpp11::writable::doubles(R_xlen_t(0))) {}
+  void setValue(int /* unused */, const Token& /* unused */) { /* unused */ };
   void setValue(int i, size_t st);
 };
 
@@ -257,7 +256,7 @@ public:
 class CollectorSkip : public Collector {
 public:
   CollectorSkip() : Collector(R_NilValue) {}
-  void setValue(int i, const Token& t) {}
+  void setValue(int /* unused */, const Token& /* unused */) {}
   bool skip() { return true; }
 };
 

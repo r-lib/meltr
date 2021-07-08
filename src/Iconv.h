@@ -1,5 +1,5 @@
-#ifndef READ_ICONV_H_
-#define READ_ICONV_H_
+#ifndef MELTR_ICONV_H_
+#define MELTR_ICONV_H_
 
 #include "cpp11/R.hpp"
 #include <string>

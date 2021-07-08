@@ -1,5 +1,5 @@
-#ifndef FASTREAD_SOURCERAW_H_
-#define FASTREAD_SOURCERAW_H_
+#ifndef MELTR_SOURCERAW_H_
+#define MELTR_SOURCERAW_H_
 
 #include "Source.h"
 #include "cpp11/raws.hpp"

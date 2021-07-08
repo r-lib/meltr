@@ -1,5 +1,5 @@
-#ifndef FASTREAD_SOURCESTRING_H_
-#define FASTREAD_SOURCESTRING_H_
+#ifndef MELTR_SOURCESTRING_H_
+#define MELTR_SOURCESTRING_H_
 
 #include "cpp11/strings.hpp"
 

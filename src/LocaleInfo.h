@@ -1,5 +1,5 @@
-#ifndef FASTREAD_LOCALINFO
-#define FASTREAD_LOCALINFO
+#ifndef MELTR_LOCALINFO_H_
+#define MELTR_LOCALINFO_H_
 
 #include "Iconv.h"
 

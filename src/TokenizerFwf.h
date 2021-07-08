@@ -1,5 +1,5 @@
-#ifndef FASTREAD_TOKENIZERFWF_H_
-#define FASTREAD_TOKENIZERFWF_H_
+#ifndef MELTR_TOKENIZERFWF_H_
+#define MELTR_TOKENIZERFWF_H_
 
 #include "Token.h"
 #include "Tokenizer.h"

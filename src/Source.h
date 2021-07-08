@@ -1,5 +1,5 @@
-#ifndef FASTREAD_SOURCE_H_
-#define FASTREAD_SOURCE_H_
+#ifndef MELTR_SOURCE_H_
+#define MELTR_SOURCE_H_
 
 #include "cpp11/list.hpp"
 #include "utils.h"
