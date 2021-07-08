@@ -90,7 +90,7 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="https://github.com/jimhester/meltr/">
+  <a href="https://github.com/r-lib/meltr/">
     <span class="fab fa-github fa-lg"></span>
      
   </a>
@@ -109,7 +109,7 @@
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Create a source object.</h1>
-    <small class="dont-index">Source: <a href='https://github.com/jimhester/meltr/blob/master/R/source.R'><code>R/source.R</code></a></small>
+    <small class="dont-index">Source: <a href='https://github.com/r-lib/meltr/blob/master/R/source.R'><code>R/source.R</code></a></small>
     <div class="hidden name"><code>datasource.Rd</code></div>
     </div>
 
@@ -187,9 +187,9 @@ vector of greater than length 1.</p>
 #&gt; attr(,"class")
 #&gt; [1] "source_raw" "source"    </div><div class='input'>
 <span class='co'># Strings</span>
-<span class='fu'>datasource</span><span class='op'>(</span><span class='fu'><a href='readr_example.html'>readr_example</a></span><span class='op'>(</span><span class='st'>"mtcars.csv"</span><span class='op'>)</span><span class='op'>)</span>
+<span class='fu'>datasource</span><span class='op'>(</span><span class='fu'><a href='meltr_example.html'>meltr_example</a></span><span class='op'>(</span><span class='st'>"mtcars.csv"</span><span class='op'>)</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; [[1]]
-#&gt; [1] "/home/runner/work/_temp/Library/readr/extdata/mtcars.csv"
+#&gt; [1] "/home/runner/work/_temp/Library/meltr/extdata/mtcars.csv"
 #&gt; 
 #&gt; $skip
 #&gt; [1] 0
@@ -202,46 +202,6 @@ vector of greater than length 1.</p>
 #&gt; 
 #&gt; $skip_quote
 #&gt; [1] TRUE
-#&gt; 
-#&gt; attr(,"class")
-#&gt; [1] "source_file" "source"     </div><div class='input'><span class='fu'>datasource</span><span class='op'>(</span><span class='fu'><a href='readr_example.html'>readr_example</a></span><span class='op'>(</span><span class='st'>"mtcars.csv.bz2"</span><span class='op'>)</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [[1]]
-#&gt; [1] "/tmp/Rtmpj9MuG5/file2a167de3587c"
-#&gt; 
-#&gt; $skip
-#&gt; [1] 0
-#&gt; 
-#&gt; $skip_empty_rows
-#&gt; [1] FALSE
-#&gt; 
-#&gt; $comment
-#&gt; [1] ""
-#&gt; 
-#&gt; $skip_quote
-#&gt; [1] TRUE
-#&gt; 
-#&gt; $env
-#&gt; &lt;environment: 0x55e95e869818&gt;
-#&gt; 
-#&gt; attr(,"class")
-#&gt; [1] "source_file" "source"     </div><div class='input'><span class='fu'>datasource</span><span class='op'>(</span><span class='fu'><a href='readr_example.html'>readr_example</a></span><span class='op'>(</span><span class='st'>"mtcars.csv.zip"</span><span class='op'>)</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [[1]]
-#&gt; [1] "/tmp/Rtmpj9MuG5/file2a162e4df67a"
-#&gt; 
-#&gt; $skip
-#&gt; [1] 0
-#&gt; 
-#&gt; $skip_empty_rows
-#&gt; [1] FALSE
-#&gt; 
-#&gt; $comment
-#&gt; [1] ""
-#&gt; 
-#&gt; $skip_quote
-#&gt; [1] TRUE
-#&gt; 
-#&gt; $env
-#&gt; &lt;environment: 0x55e95e93f0c0&gt;
 #&gt; 
 #&gt; attr(,"class")
 #&gt; [1] "source_file" "source"     </div><div class='input'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
@@ -252,7 +212,7 @@ vector of greater than length 1.</p>
 <span class='va'>con</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/rawConnection.html'>rawConnection</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/rawConversion.html'>charToRaw</a></span><span class='op'>(</span><span class='st'>"abc\n123"</span><span class='op'>)</span><span class='op'>)</span>
 <span class='fu'>datasource</span><span class='op'>(</span><span class='va'>con</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; [[1]]
-#&gt; [1] "/tmp/Rtmpj9MuG5/file2a1635dbd74b"
+#&gt; [1] "/tmp/RtmpV6xaj8/file2927e6de5ea"
 #&gt; 
 #&gt; $skip
 #&gt; [1] 0
@@ -267,7 +227,7 @@ vector of greater than length 1.</p>
 #&gt; [1] TRUE
 #&gt; 
 #&gt; $env
-#&gt; &lt;environment: 0x55e95ea6f420&gt;
+#&gt; &lt;environment: 0x5556a40b43e8&gt;
 #&gt; 
 #&gt; attr(,"class")
 #&gt; [1] "source_file" "source"     </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/connections.html'>close</a></span><span class='op'>(</span><span class='va'>con</span><span class='op'>)</span>

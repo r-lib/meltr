@@ -96,7 +96,7 @@ an error as soon as you encounter a problem." />
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="https://github.com/jimhester/meltr/">
+  <a href="https://github.com/r-lib/meltr/">
     <span class="fab fa-github fa-lg"></span>
      
   </a>
@@ -115,7 +115,7 @@ an error as soon as you encounter a problem." />
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Retrieve parsing problems</h1>
-    <small class="dont-index">Source: <a href='https://github.com/jimhester/meltr/blob/master/R/problems.R'><code>R/problems.R</code></a></small>
+    <small class="dont-index">Source: <a href='https://github.com/r-lib/meltr/blob/master/R/problems.R'><code>R/problems.R</code></a></small>
     <div class="hidden name"><code>problems.Rd</code></div>
     </div>
 
@@ -152,19 +152,20 @@ an error as soon as you encounter a problem.</p>
 
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='va'>x</span> <span class='op'>&lt;-</span> <span class='fu'>readr</span><span class='fu'>::</span><span class='fu'><a href='https://readr.tidyverse.org/reference/parse_atomic.html'>parse_integer</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"1X"</span>, <span class='st'>"blah"</span>, <span class='st'>"3"</span><span class='op'>)</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='warning'>Warning: 2 parsing failures.</span>
-#&gt; <span class='warning'>row col               expected actual</span>
-#&gt; <span class='warning'>  1  -- no trailing characters   1X  </span>
-#&gt; <span class='warning'>  2  -- an integer               blah</span></div><div class='input'><span class='fu'>problems</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 2 x 4</span>
-#&gt;     row   col expected               actual
-#&gt;   <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>                  <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> 
-#&gt; <span style='color: #BCBCBC;'>1</span>     1    <span style='color: #BB0000;'>NA</span> no trailing characters 1X    
-#&gt; <span style='color: #BCBCBC;'>2</span>     2    <span style='color: #BB0000;'>NA</span> an integer             blah  </div><div class='input'>
+    <pre class="examples"><div class='input'><span class='kw'>if</span> <span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/ns-load.html'>requireNamespace</a></span><span class='op'>(</span><span class='st'>"readr"</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>{</span>
+<span class='va'>x</span> <span class='op'>&lt;-</span> <span class='fu'>readr</span><span class='fu'>::</span><span class='fu'><a href='https://readr.tidyverse.org/reference/parse_atomic.html'>parse_integer</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"1X"</span>, <span class='st'>"blah"</span>, <span class='st'>"3"</span><span class='op'>)</span><span class='op'>)</span>
+<span class='fu'>problems</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>
+
 <span class='va'>y</span> <span class='op'>&lt;-</span> <span class='fu'>readr</span><span class='fu'>::</span><span class='fu'><a href='https://readr.tidyverse.org/reference/parse_atomic.html'>parse_integer</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"1"</span>, <span class='st'>"2"</span>, <span class='st'>"3"</span><span class='op'>)</span><span class='op'>)</span>
 <span class='fu'>problems</span><span class='op'>(</span><span class='va'>y</span><span class='op'>)</span>
-</div></pre>
+<span class='op'>}</span>
+</div><div class='output co'>#&gt; <span class='message'>Loading required namespace: readr</span></div><div class='output co'>#&gt; <span class='message'>Registered S3 methods overwritten by 'readr':</span>
+#&gt; <span class='message'>  method           from </span>
+#&gt; <span class='message'>  print.date_names meltr</span>
+#&gt; <span class='message'>  print.locale     meltr</span></div><div class='output co'>#&gt; <span class='warning'>Warning: 2 parsing failures.</span>
+#&gt; <span class='warning'>row col               expected actual</span>
+#&gt; <span class='warning'>  1  -- no trailing characters   1X  </span>
+#&gt; <span class='warning'>  2  -- an integer               blah</span></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
