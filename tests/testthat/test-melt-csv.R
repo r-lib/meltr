@@ -190,3 +190,28 @@ test_that("melt_csv handles whitespace between delimiters and quoted fields", {
   x <- melt_csv('1, \"hi,there\"\n3,4')
   expect_equal(x$value[2:3], c("hi,there", "3"))
 })
+
+test_that("melt_csv works with raw inputs", {
+  x <- melt_csv(as.raw(charToRaw("a,b\n1,2")))
+  expect_equal(x,
+    tibble::tibble(
+      row = c(1, 1, 2, 2),
+      col = c(1, 2, 1, 2),
+      data_type = c("character", "character", "integer", "integer"),
+      value = c("a", "b", "1", "2")
+    )
+  )
+})
+
+
+test_that("melt_csv works with dates and datetimes", {
+  x <- melt_csv('a\n2020-01-01,2021-01-01 10:01:00')
+  expect_equal(x,
+    tibble::tibble(
+      row = c(1, 2, 2),
+      col = c(1, 1, 2),
+      data_type = c("character", "date", "datetime"),
+      value = c("a", "2020-01-01", "2021-01-01 10:01:00")
+    )
+  )
+})
