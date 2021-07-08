@@ -5,9 +5,9 @@
 
 <!-- badges: start -->
 
-[![R-CMD-check](https://github.com/jimhester/meltr/workflows/R-CMD-check/badge.svg)](https://github.com/jimhester/meltr/actions)
+[![R-CMD-check](https://github.com/r-lib/meltr/workflows/R-CMD-check/badge.svg)](https://github.com/r-lib/meltr/actions)
 [![Codecov test
-coverage](https://codecov.io/gh/jimhester/meltr/branch/master/graph/badge.svg)](https://codecov.io/gh/jimhester/meltr?branch=master)
+coverage](https://codecov.io/gh/r-lib/meltr/branch/master/graph/badge.svg)](https://codecov.io/gh/r-lib/meltr?branch=master)
 <!-- badges: end -->
 
 <p align="center">
@@ -28,11 +28,10 @@ The meltr package provides tools to do this.
 
 ## Installation
 
-You can install the development version of meltr from GitHub with:
+You can install the released version of meltr from CRAN with:
 
 ``` r
-# install.packages("remotes")
-remotes::install_github("jimhester/meltr")
+install.packages("meltr")
 ```
 
 ## The problem with non-rectangular data
