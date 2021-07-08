@@ -17,6 +17,7 @@ knitr::opts_chunk$set(
 
 <!-- badges: start -->
 [![R-CMD-check](https://github.com/jimhester/meltr/workflows/R-CMD-check/badge.svg)](https://github.com/jimhester/meltr/actions)
+[![Codecov test coverage](https://codecov.io/gh/jimhester/meltr/branch/master/graph/badge.svg)](https://codecov.io/gh/jimhester/meltr?branch=master)
 <!-- badges: end -->
 
 <p align="center">
