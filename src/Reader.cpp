@@ -71,13 +71,11 @@ cpp11::sexp Reader::readToDataFrame(R_xlen_t lines) {
   cpp11::sexp out2(warnings_.addAsAttribute(static_cast<SEXP>(out)));
 
   out2.attr("names") = outNames_;
-  out2.attr("class") = {"spec_tbl_df", "tbl_df", "tbl", "data.frame"};
+  out2.attr("class") = {"meltr_spec_tbl_df", "tbl_df", "tbl", "data.frame"};
   out2.attr("row.names") = {NA_REAL, -(static_cast<double>(rows + 1))};
 
   collectorsClear();
   warnings_.clear();
-
-  // TODO: call tibble name repair function when tibble 1.5.0 is released.
 
   return out2;
 }
