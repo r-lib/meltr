@@ -29,9 +29,11 @@ problems: this is useful for automated scripts where you want to throw
 an error as soon as you encounter a problem.
 }
 \examples{
+if (requireNamespace("readr")) {
 x <- readr::parse_integer(c("1X", "blah", "3"))
 problems(x)
 
 y <- readr::parse_integer(c("1", "2", "3"))
 problems(y)
+}
 }

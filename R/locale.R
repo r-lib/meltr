@@ -28,7 +28,7 @@
 #'   DST. It is *not* Eastern Standard Time. It's better to use
 #'   "US/Eastern", "US/Central" etc.
 #' @param encoding Default encoding. This only affects how the file is
-#'   read - readr always converts the output to UTF-8.
+#'   read - meltr always converts the output to UTF-8.
 #' @export
 #' @examples
 #' locale()

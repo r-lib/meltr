@@ -23,14 +23,14 @@
 #' @export
 #' @examples
 #' # One corner from http://www.masseyratings.com/cf/compare.htm
-#' massey <- readr_example("massey-rating.txt")
-#' cat(readr::read_file(massey))
+#' massey <- meltr_example("massey-rating.txt")
+#' cat(readLines(massey))
 #' melt_table(massey)
 #'
 #' # Sample of 1978 fuel economy data from
 #' # http://www.fueleconomy.gov/feg/epadata/78data.zip
-#' epa <- readr_example("epa78.txt")
-#' cat(readr::read_file(epa))
+#' epa <- meltr_example("epa78.txt")
+#' writeLines(readLines(epa))
 #' melt_table(epa)
 melt_table <- function(file, locale = default_locale(), na = "NA", skip = 0,
                        n_max = Inf, guess_max = min(n_max, 1000),

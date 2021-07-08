@@ -16,11 +16,13 @@
 #'   \item{actual}{What it actually got}
 #' @export
 #' @examples
+#' if (requireNamespace("readr")) {
 #' x <- readr::parse_integer(c("1X", "blah", "3"))
 #' problems(x)
 #'
 #' y <- readr::parse_integer(c("1", "2", "3"))
 #' problems(y)
+#' }
 problems <- local({
   no_problems <- tibble::tibble(
     row = integer(),

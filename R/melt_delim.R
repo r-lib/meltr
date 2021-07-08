@@ -25,9 +25,7 @@
 #' @examples
 #' # Input sources -------------------------------------------------------------
 #' # Read from a path
-#' melt_csv(readr_example("mtcars.csv"))
-#' melt_csv(readr_example("mtcars.csv.zip"))
-#' melt_csv(readr_example("mtcars.csv.bz2"))
+#' melt_csv(meltr_example("mtcars.csv"))
 #' \dontrun{
 #' melt_csv("https://github.com/tidyverse/readr/raw/master/inst/extdata/mtcars.csv")
 #' }

@@ -113,8 +113,8 @@ it still requires that each field is in the same in every row of the
 source file.
 }
 \examples{
-fwf_sample <- readr_example("fwf-sample.txt")
-cat(readr::read_lines(fwf_sample))
+fwf_sample <- meltr_example("fwf-sample.txt")
+writeLines(readLines(fwf_sample))
 
 # You can specify column positions in several ways:
 # 1. Guess based on position of empty columns

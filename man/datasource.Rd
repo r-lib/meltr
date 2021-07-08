@@ -39,9 +39,7 @@ datasource("a,b,c\n1,2,3")
 datasource(charToRaw("a,b,c\n1,2,3"))
 
 # Strings
-datasource(readr_example("mtcars.csv"))
-datasource(readr_example("mtcars.csv.bz2"))
-datasource(readr_example("mtcars.csv.zip"))
+datasource(meltr_example("mtcars.csv"))
 \dontrun{
 datasource("https://github.com/tidyverse/readr/raw/master/inst/extdata/mtcars.csv")
 }

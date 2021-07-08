@@ -44,7 +44,7 @@ DST. It is \emph{not} Eastern Standard Time. It's better to use
 "US/Eastern", "US/Central" etc.}
 
 \item{encoding}{Default encoding. This only affects how the file is
-read - readr always converts the output to UTF-8.}
+read - meltr always converts the output to UTF-8.}
 }
 \description{
 A locale object tries to capture all the defaults that can vary between

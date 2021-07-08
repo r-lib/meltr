@@ -145,7 +145,7 @@ at a time, executing a given function on one chunk before reading the next.
 \examples{
 # Cars with 3 gears
 f <- function(x, pos) subset(x, data_type == "integer")
-melt_csv_chunked(readr_example("mtcars.csv"), DataFrameCallback$new(f), chunk_size = 5)
+melt_csv_chunked(meltr_example("mtcars.csv"), DataFrameCallback$new(f), chunk_size = 5)
 }
 \seealso{
 Other chunked: 

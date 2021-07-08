@@ -1,5 +1,5 @@
 test_that("melt_delim_chunked", {
-  file <- readr_example("mtcars.csv")
+  file <- meltr_example("mtcars.csv")
   unchunked <- melt_csv(file)
 
   get_dims <- function(data, pos) dims[[length(dims) + 1]] <<- dim(data)
@@ -35,7 +35,7 @@ test_that("melt_delim_chunked", {
 })
 
 test_that("DataFrameCallback works as intended", {
-  f <- readr_example("mtcars.csv")
+  f <- meltr_example("mtcars.csv")
   out0 <- subset(melt_csv(f), data_type == "integer")
   fun3 <- DataFrameCallback$new(function(x, pos) {
     subset(x, data_type == "integer")
@@ -68,7 +68,7 @@ test_that("DataFrameCallback works as intended", {
 })
 
 test_that("ListCallback works as intended", {
-  f <- readr_example("mtcars.csv")
+  f <- meltr_example("mtcars.csv")
   out0 <- melt_csv(f)
 
   fun <- ListCallback$new(function(x, pos) x[["value"]])
