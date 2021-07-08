@@ -2,13 +2,9 @@
 #' @importFrom tibble tibble
 NULL
 
-isFALSE <- function(x) identical(x, FALSE)
-
 is.connection <- function(x) inherits(x, "connection")
 
 `%||%` <- function(a, b) if (is.null(a)) b else a
-
-is_syntactic <- function(x) make.names(x) == x
 
 #' Determine whether progress bars should be shown
 #'
@@ -25,69 +21,25 @@ show_progress <- function() {
     !isTRUE(getOption("knitr.in.progress")) # Not actively knitting a document
 }
 
-#' Determine whether column types should be shown
-#'
-#' Column types are shown unless
-#' - They are disabled by setting `options(readr.show_types = FALSE)`
-#' - The column types are supplied with the `col_types` argument.
-#' @export
-should_show_types <- function() {
-  if (identical(getOption("readr.show_types", TRUE), FALSE)) {
-    FALSE
-  } else {
-    NULL
-  }
-}
-
-deparse2 <- function(expr, ..., sep = "\n") {
-  paste(deparse(expr, ...), collapse = sep)
-}
-
-is_integerish <- function(x) {
-  floor(x) == x
-}
-
-#' Determine how many threads readr should use when processing
-#'
-#' The number of threads returned can be set by
-#' - The global option `readr.num_threads`
-#' - The environment variable `VROOM_THREADS`
-#' - The value of [parallel::detectCores()]
-#' @export
-readr_threads <- function() {
-  res <- getOption("readr.num_threads")
-
-  if (is.null(res)) {
-    res <- as.integer(Sys.getenv("VROOM_THREADS", parallel::detectCores()))
-    options("readr.num_threads" = res)
-  }
-
-  if (is.na(res) || res <= 0) {
-    res <- 1
-  }
-
-  res
-}
-
 #' @importFrom tibble as_tibble
 #' @export
-as_tibble.spec_tbl_df <- function(x, ...) {
+as_tibble.meltr_spec_tbl_df <- function(x, ...) {
   attr(x, "spec") <- NULL
   attr(x, "problems") <- NULL
-  class(x) <- setdiff(class(x), "spec_tbl_df")
+  class(x) <- setdiff(class(x), "meltr_spec_tbl_df")
   NextMethod("as_tibble")
 }
 
 #' @export
-as.data.frame.spec_tbl_df <- function(x, ...) {
+as.data.frame.meltr_spec_tbl_df <- function(x, ...) {
   attr(x, "spec") <- NULL
   attr(x, "problems") <- NULL
-  class(x) <- setdiff(class(x), "spec_tbl_df")
+  class(x) <- setdiff(class(x), "meltr_spec_tbl_df")
   NextMethod("as.data.frame")
 }
 
 #' @export
-`[.spec_tbl_df` <- function(x, ...) {
+`[.meltr_spec_tbl_df` <- function(x, ...) {
   attr(x, "spec") <- NULL
   attr(x, "problems") <- NULL
   class(x) <- setdiff(class(x), "spec_tbl_df")
@@ -95,10 +47,10 @@ as.data.frame.spec_tbl_df <- function(x, ...) {
 }
 
 #' @importFrom methods setOldClass
-setOldClass(c("spec_tbl_df", "tbl_df", "tbl", "data.frame"))
+setOldClass(c("meltr_spec_tbl_df", "tbl_df", "tbl", "data.frame"))
 
 # @export
-compare.tbl_df <- function(x, y, ...) {
+compare.meltr_spec_tbl_df <- function(x, y, ...) {
   attr(x, "spec") <- NULL
   attr(x, "problems") <- NULL
 
@@ -109,15 +61,7 @@ compare.tbl_df <- function(x, y, ...) {
 }
 
 # @export
-compare.col_spec <- function(x, y, ...) {
-  x[["skip"]] <- NULL
-  y[["skip"]] <- NULL
-
-  NextMethod("compare")
-}
-
-# @export
-compare_proxy.spec_tbl_df <- function(x) {
+compare_proxy.meltr_spec_tbl_df <- function(x) {
   attr(x, "spec") <- NULL
   attr(x, "problems") <- NULL
   x
@@ -135,4 +79,31 @@ is_named <- function(x) {
 
 .onLoad <- function(...) {
   tzdb::tzdb_initialize()
+
+  register_s3_method("testthat", "compare", "meltr_spec_tbl_df")
+  register_s3_method("waldo", "compare_proxy", "meltr_spec_tbl_df")
+}
+
+register_s3_method <- function(pkg, generic, class, fun = NULL) {
+  stopifnot(is.character(pkg), length(pkg) == 1)
+  stopifnot(is.character(generic), length(generic) == 1)
+  stopifnot(is.character(class), length(class) == 1)
+
+  if (is.null(fun)) {
+    fun <- get(paste0(generic, ".", class), envir = parent.frame())
+  } else {
+    stopifnot(is.function(fun))
+  }
+
+  if (pkg %in% loadedNamespaces()) {
+    registerS3method(generic, class, fun, envir = asNamespace(pkg))
+  }
+
+  # Always register hook in case package is later unloaded & reloaded
+  setHook(
+    packageEvent(pkg, "onLoad"),
+    function(...) {
+      registerS3method(generic, class, fun, envir = asNamespace(pkg))
+    }
+  )
 }

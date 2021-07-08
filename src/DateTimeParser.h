@@ -1,7 +1,6 @@
 #ifndef FASTREAD_DATE_TIME_PARSER_H_
 #define FASTREAD_DATE_TIME_PARSER_H_
 
-#include "DateTime.h"
 #include "LocaleInfo.h"
 #include "QiParsers.h"
 #include "cpp11/protect.hpp"
@@ -292,30 +291,6 @@ public:
     consumeWhiteSpace(); // always consume trailing whitespace
 
     return isComplete();
-  }
-
-  DateTime makeDateTime() {
-    DateTime dt(year_, mon_, day_, hour(), min_, sec_, psec_, tz_);
-    if (tz_ == "UTC")
-      dt.setOffset(-tzOffsetHours_ * 3600 - tzOffsetMinutes_ * 60);
-
-    return dt;
-  }
-  DateTime makeDate() {
-    DateTime dt(year_, mon_, day_, 0, 0, 0, 0, "UTC");
-    return dt;
-  }
-  DateTime makeTime() {
-    DateTime dt(
-        0,
-        1,
-        1,
-        sign_ * hour(),
-        sign_ * min_,
-        sign_ * sec_,
-        sign_ * psec_,
-        "UTC");
-    return dt;
   }
 
   bool compactDate() { return compactDate_; }

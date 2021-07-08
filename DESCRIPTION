@@ -10,7 +10,7 @@ Authors@R:
              family = "Garmonsway",
              role = "aut",
              email = "nacnudus@gmail.com",
-             comment = "nacnudus"),
+             comment = "@nacnudus"),
       person(given = "Jim",
              family = "Hester",
              role = c("aut", "cre"),
@@ -33,6 +33,7 @@ Imports:
     cli,
     methods,
     R6,
+    rlang,
     tibble,
     tzdb
 Suggests: 

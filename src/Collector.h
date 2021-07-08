@@ -6,7 +6,6 @@
 #include "cpp11/logicals.hpp"
 #include "cpp11/strings.hpp"
 
-#include "DateTime.h"
 #include "DateTimeParser.h"
 #include "Iconv.h"
 #include "LocaleInfo.h"
