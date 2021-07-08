@@ -15,21 +15,22 @@
 The goal of ‘meltr’ is to provide a fast and friendly way to read
 non-rectangular data (like ragged forms of ‘csv’, ‘tsv’, and ‘fwf’).
 
-Standard tools like readr::read\_csv() can cope to some extent with
-unusual inputs, like files with empty rows or newlines embedded in
-strings. But some files are so wacky that standard tools don’t work at
-all, and instead you have to take the file to pieces and reassemble it
-in a standard design.
+Standard tools like
+[`readr::read_csv()`](https://readr.tidyverse.org/reference/read_delim.html)
+can cope to some extent with unusual inputs, like files with empty rows
+or newlines embedded in strings. But some files are so wacky that
+standard tools don’t work at all, and instead you have to take the file
+to pieces and reassemble to get structured data you can work with.
 
-The meltr package separates delimited text files into individual cells.
+The meltr package provides tools to do this.
 
 ## Installation
 
-You can install the released version of meltr from
-[CRAN](https://CRAN.R-project.org) with:
+You can install the development version of meltr from GitHub with:
 
 ``` r
-install.packages("meltr")
+# install.packages("remotes")
+remotes::install_github("jimhester/meltr")
 ```
 
 ## The problem with non-rectangular data
@@ -40,8 +41,9 @@ tools like `readr::read_csv()`.
 1.  There are more cells in some rows than others.
 2.  There are mixed data types within each column.
 
-The `melt_csv()` function reads the file one cell at a time, importing
-each cell of the file into a whole row of the final data frame.
+In contrast, the `melt_csv()` function reads the file one cell at a
+time, importing each cell of the file into a whole row of the final data
+frame.
 
 ``` r
 writeLines("Help,,007,I'm
@@ -68,19 +70,18 @@ melt_csv("messy.csv")
 #> 12     3     3 missing   <NA>
 ```
 
-What the `melt_csv()` output means:
+The output of `melt_csv()` gives us:
 
--   The output of `melt_csv()` is a data frame – structured data about
-    un-structured data!
--   Each row of the data frame represents one cell of the input data.
--   The empty cell of row 1 is imported, but the missing cells at the
-    ends of rows 1 and 3 aren’t.
--   No data type conversion is attempted – every value is imported as a
-    string, and the `data_type` column merely gives meltr’s best guess
-    of what the data types ought to be.
+-   A data frame of results – structured data about un-structured data!
+-   Rows of data corresponding to cells of the input data.
+-   Empty cells such as the cell on row 1, but not missing cells at the
+    ends of rows 1 and 3.
+-   The raw, unconverted data, no data type conversion is attempted –
+    every value is imported as a string, and the `data_type` column
+    merely gives meltr’s best guess of what the data types ought to be.
 
-How can you use this? To begin with, you can do some simple
-manipulations with ordinary functions.
+What are some ways you can you use this? To begin with, you can do some
+simple manipulations with ordinary functions.
 
 For example you could extract the words.
 
@@ -113,8 +114,4 @@ data %>%
 #> 4     2     3 character trapped in     
 #> 5     3     1 character non-rectangular
 #> 6     3     2 character data
-```
-
-``` r
-unlink("messy.csv")
 ```
