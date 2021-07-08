@@ -149,7 +149,7 @@ public:
   CollectorDouble(char decimalMark)
       : Collector(cpp11::writable::doubles(R_xlen_t(0))),
         decimalMark_(decimalMark) {}
-  void setValue(int i, const Token& t);
+  void setValue(int i, const Token& t) { /* unused */ };
   void setValue(int i, size_t st);
 };
 

@@ -64,36 +64,4 @@ void CollectorCharacter::setValue(int i, const std::string& s) {
   SET_STRING_ELT(column_, i, Rf_mkCharCE(s.c_str(), CE_UTF8));
 }
 
-
-void CollectorDouble::setValue(int i, const Token& t) {
-  switch (t.type()) {
-  case TOKEN_STRING: {
-    std::string buffer;
-    SourceIterators str = t.getString(&buffer);
-    const char* end = str.second;
-    bool ok =
-        parseDouble(decimalMark_, str.first, str.second, REAL(column_)[i]);
-    if (!ok) {
-      REAL(column_)[i] = NA_REAL;
-      SourceIterators org_str = t.getString(&buffer);
-      warn(t.row(), t.col(), "a double", org_str);
-      return;
-    }
-    if (str.second != end) {
-      REAL(column_)[i] = NA_REAL;
-      SourceIterators org_str = t.getString(&buffer);
-      warn(t.row(), t.col(), "no trailing characters", org_str);
-      return;
-    }
-    return;
-  }
-  case TOKEN_MISSING:
-  case TOKEN_EMPTY:
-    REAL(column_)[i] = NA_REAL;
-    break;
-  case TOKEN_EOF:
-    cpp11::stop("Invalid token");
-  }
-}
-
 void CollectorDouble::setValue(int i, size_t st) { REAL(column_)[i] = st; }
