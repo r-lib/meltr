@@ -36,9 +36,7 @@ problems <- local({
       return(invisible(no_problems))
     }
 
-    if (inherits(problems, "tbl_df")) {
-      return(problems)
-    }
+    problems
   }
 })
 

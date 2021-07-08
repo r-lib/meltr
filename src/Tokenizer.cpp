@@ -5,7 +5,6 @@
 #include "Tokenizer.h"
 #include "TokenizerDelim.h"
 #include "TokenizerFwf.h"
-#include "TokenizerLine.h"
 #include "TokenizerWs.h"
 
 TokenizerPtr Tokenizer::create(const cpp11::list& spec) {
@@ -45,13 +44,6 @@ TokenizerPtr Tokenizer::create(const cpp11::list& spec) {
     bool skipEmptyRows = cpp11::as_cpp<bool>(spec["skip_empty_rows"]);
     return TokenizerPtr(
         new TokenizerFwf(begin, end, na, comment, trimWs, skipEmptyRows));
-  }
-
-  if (subclass == "tokenizer_line") {
-    std::vector<std::string> na =
-        cpp11::as_cpp<std::vector<std::string>>(spec["na"]);
-    bool skipEmptyRows = cpp11::as_cpp<bool>(spec["skip_empty_rows"]);
-    return TokenizerPtr(new TokenizerLine(na, skipEmptyRows));
   }
 
   if (subclass == "tokenizer_ws") {
