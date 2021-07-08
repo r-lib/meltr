@@ -47,6 +47,7 @@ LinkingTo:
     cpp11,
     tzdb
 Config/testthat/edition: 3
+Config/Needs/website: dplyr
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
