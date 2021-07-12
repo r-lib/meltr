@@ -34,8 +34,7 @@ Imports:
     methods,
     R6,
     rlang,
-    tibble,
-    tzdb
+    tibble
 Suggests: 
     clipr,
     covr,
@@ -45,8 +44,7 @@ Suggests:
     testthat (>= 3.0.0),
     withr
 LinkingTo: 
-    cpp11,
-    tzdb
+    cpp11
 Config/testthat/edition: 3
 Config/Needs/website: dplyr
 Encoding: UTF-8

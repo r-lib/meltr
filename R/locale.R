@@ -112,11 +112,7 @@ check_tz <- function(x) {
     }
   }
 
-  if (x %in% tzdb::tzdb_names()) {
-    x
-  } else {
-    stop("Unknown TZ ", x, call. = FALSE)
-  }
+  x
 }
 
 check_encoding <- function(x) {

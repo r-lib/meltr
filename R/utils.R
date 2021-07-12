@@ -78,8 +78,6 @@ is_named <- function(x) {
 }
 
 .onLoad <- function(...) {
-  tzdb::tzdb_initialize()
-
   register_s3_method("testthat", "compare", "meltr_spec_tbl_df")
   register_s3_method("waldo", "compare_proxy", "meltr_spec_tbl_df")
 }
