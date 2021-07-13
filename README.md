@@ -97,13 +97,8 @@ library(dplyr)
 #> 
 #>     intersect, setdiff, setequal, union
 
-data <- melt_csv("messy.csv") %>%
-  filter(data_type == "character")
-```
+data <- melt_csv("messy.csv")
 
-Or find if there are missing entries.
-
-``` r
 data %>%
   filter(data_type == "character")
 #> # A tibble: 6 x 4
@@ -115,4 +110,16 @@ data %>%
 #> 4     2     3 character trapped in     
 #> 5     3     1 character non-rectangular
 #> 6     3     2 character data
+```
+
+Or find if there are missing entries.
+
+``` r
+data %>%
+  filter(data_type == "missing")
+#> # A tibble: 2 x 4
+#>     row   col data_type value
+#>   <dbl> <dbl> <chr>     <chr>
+#> 1     1     2 missing   <NA> 
+#> 2     3     3 missing   <NA>
 ```

@@ -74,7 +74,9 @@ For example you could extract the words.
 ```{r}
 library(dplyr)
 
-data <- melt_csv("messy.csv") %>%
+data <- melt_csv("messy.csv")
+
+data %>%
   filter(data_type == "character")
 ```
 
@@ -82,7 +84,7 @@ Or find if there are missing entries.
 
 ```{r}
 data %>%
-  filter(data_type == "character")
+  filter(data_type == "missing")
 ```
 
 ```{r, include = FALSE}
