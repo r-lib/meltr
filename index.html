@@ -137,11 +137,9 @@ non-rectangular,data,NA"</span>, <span class="st">"messy.csv"</span><span class=
 <span class="co">#&gt; </span>
 <span class="co">#&gt;     intersect, setdiff, setequal, union</span>
 
-<span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/melt_delim.html">melt_csv</a></span><span class="op">(</span><span class="st">"messy.csv"</span><span class="op">)</span> <span class="op">%&gt;%</span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">data_type</span> <span class="op">==</span> <span class="st">"character"</span><span class="op">)</span></code></pre></div>
-<p>Or find if there are missing entries.</p>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">data</span> <span class="op">%&gt;%</span>
+<span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/melt_delim.html">melt_csv</a></span><span class="op">(</span><span class="st">"messy.csv"</span><span class="op">)</span>
+
+<span class="va">data</span> <span class="op">%&gt;%</span>
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">data_type</span> <span class="op">==</span> <span class="st">"character"</span><span class="op">)</span>
 <span class="co">#&gt; # A tibble: 6 x 4</span>
 <span class="co">#&gt;     row   col data_type value          </span>
@@ -152,6 +150,15 @@ non-rectangular,data,NA"</span>, <span class="st">"messy.csv"</span><span class=
 <span class="co">#&gt; 4     2     3 character trapped in     </span>
 <span class="co">#&gt; 5     3     1 character non-rectangular</span>
 <span class="co">#&gt; 6     3     2 character data</span></code></pre></div>
+<p>Or find if there are missing entries.</p>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">data</span> <span class="op">%&gt;%</span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">data_type</span> <span class="op">==</span> <span class="st">"missing"</span><span class="op">)</span>
+<span class="co">#&gt; # A tibble: 2 x 4</span>
+<span class="co">#&gt;     row   col data_type value</span>
+<span class="co">#&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;     &lt;chr&gt;</span>
+<span class="co">#&gt; 1     1     2 missing   &lt;NA&gt; </span>
+<span class="co">#&gt; 2     3     3 missing   &lt;NA&gt;</span></code></pre></div>
 </div>
 </div>
   </div>
