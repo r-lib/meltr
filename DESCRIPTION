@@ -1,7 +1,7 @@
 Package: meltr
 Title: Read Non-Rectangular Text Data
 Version: 0.0.0.9000
-Authors@R: 
+Authors@R:
     c(person(given = "Hadley",
              family = "Wickham",
              role = "aut",
@@ -22,20 +22,20 @@ Authors@R:
              role = "cph",
              comment = "mio library"))
 Description: The goal of 'meltr' is to provide a fast and friendly way to
-    read non-rectangular data (like ragged forms of 'csv', 'tsv', and
-    'fwf').
+    read non-rectangular data, such as ragged forms of csv (comma-separated
+    values), tsv (tab-separated values), and fwf (fixed-width format) files.
 License: MIT + file LICENSE
 URL: https://github.com/r-lib/meltr
 BugReports: https://github.com/r-lib/meltr/issues
-Depends: 
+Depends:
     R (>= 2.10)
-Imports: 
+Imports:
     cli,
     methods,
     R6,
     rlang,
     tibble
-Suggests: 
+Suggests:
     clipr,
     covr,
     crayon,
@@ -43,7 +43,7 @@ Suggests:
     readr,
     testthat (>= 3.0.0),
     withr
-LinkingTo: 
+LinkingTo:
     cpp11
 Config/testthat/edition: 3
 Config/Needs/website: dplyr
