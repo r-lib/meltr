@@ -9,6 +9,9 @@ meltr_example(file = NULL)
 \arguments{
 \item{file}{Name of file. If \code{NULL}, the example files will be listed.}
 }
+\value{
+A file path or a vector of file names
+}
 \description{
 meltr comes bundled with a number of sample files in its \code{inst/extdata}
 directory. This function make them easy to access

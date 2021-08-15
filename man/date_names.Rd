@@ -23,6 +23,9 @@ date_names_langs()
 e.g. \code{"en_US"} for American English. See \code{date_names_langs()}
 for a complete list of available locales.}
 }
+\value{
+A date names object
+}
 \description{
 When parsing dates, you often need to know how weekdays of the week and
 months are represented as text. This pair of functions allows you to either
@@ -30,6 +33,7 @@ create your own, or retrieve from a standard list. The standard list is
 derived from ICU (\url{http://site.icu-project.org}) via the stringi package.
 }
 \examples{
+date_names(mon = LETTERS[1:12], day = letters[1:7])
 date_names_lang("en")
 date_names_lang("ko")
 date_names_lang("fr")

@@ -118,20 +118,34 @@ values (the default) or strings.}
 \item{comment}{A string used to identify comments. Any text after the
 comment characters will be silently ignored.}
 
-\item{trim_ws}{Should leading and trailing whitespace (ASCII spaces and tabs) be trimmed from
+\item{trim_ws}{Should leading and trailing whitespace be trimmed from
 each field before parsing it?}
 
-\item{skip}{Number of lines to skip before reading data. If \code{comment} is
-supplied any commented lines are ignored \emph{after} skipping.}
+\item{skip}{Number of lines to skip before reading data.}
 
 \item{progress}{Display a progress bar? By default it will only display
-in an interactive session and not while knitting a document. The automatic
-progress bar can be disabled by setting option \code{readr.show_progress} to
-\code{FALSE}.}
+in an interactive session and not while knitting a document. The display
+is updated every 50,000 values and will only display if estimated reading
+time is 5 seconds or more. The automatic progress bar can be disabled by
+setting option \code{readr.show_progress} to \code{FALSE}.}
 
 \item{skip_empty_rows}{Should blank rows be ignored altogether? i.e. If this
 option is \code{TRUE} then blank rows will not be represented at all.  If it is
 \code{FALSE} then they will be represented by \code{NA} values in all the columns.}
+}
+\value{
+A \code{\link[=tibble]{tibble()}} of four columns:
+\itemize{
+\item \code{row}, the row that the token comes from in the original file
+\item \code{col}, the column that the token comes from in the original file
+\item \code{data_type}, the data type of the token, e.g. \code{"integer"}, \code{"character"},
+\code{"date"}, guessed in a similar way to the \code{guess_parser()} function.
+\item \code{value}, the token itself as a character string, unchanged from its
+representation in the original file.
+}
+
+If there are parsing problems, a warning tells you
+how many, and you can retrieve the details with \code{\link[=problems]{problems()}}.
 }
 \description{
 For certain non-rectangular data formats, it can be useful to parse the data

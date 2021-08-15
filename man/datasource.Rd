@@ -30,6 +30,9 @@ Using a value of \code{\link[=clipboard]{clipboard()}} will read from the system
 
 \item{skip}{Number of lines to skip before reading data.}
 }
+\value{
+A source object
+}
 \description{
 Create a source object.
 }

@@ -6,6 +6,9 @@
 \usage{
 show_progress()
 }
+\value{
+A logical value
+}
 \description{
 Progress bars are shown \emph{unless} one of the following is \code{TRUE}
 \itemize{
@@ -14,4 +17,7 @@ Progress bars are shown \emph{unless} one of the following is \code{TRUE}
 \item The code is run in an RStudio notebook chunk.
 \item The code is run by knitr / rmarkdown.
 }
+}
+\examples{
+show_progress()
 }

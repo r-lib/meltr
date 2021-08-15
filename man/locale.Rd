@@ -46,6 +46,9 @@ DST. It is \emph{not} Eastern Standard Time. It's better to use
 \item{encoding}{Default encoding. This only affects how the file is
 read - meltr always converts the output to UTF-8.}
 }
+\value{
+A locale object
+}
 \description{
 A locale object tries to capture all the defaults that can vary between
 countries. You set the locale in once, and the details are automatically

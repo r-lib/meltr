@@ -90,6 +90,9 @@ option is \code{TRUE} then blank rows will not be represented at all.  If it is
 offsets so the first column is column zero, and the ranges are
 [begin, end) (i.e inclusive-exclusive).}
 }
+\value{
+A tokeenizer object
+}
 \description{
 Explicitly create tokenizer objects. Usually you will not call these
 function, but will instead use one of the use friendly wrappers like
@@ -97,5 +100,6 @@ function, but will instead use one of the use friendly wrappers like
 }
 \examples{
 tokenizer_csv()
+tokenizer_delim(",")
 }
 \keyword{internal}
