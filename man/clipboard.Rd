@@ -10,7 +10,9 @@ clipboard()
 This is useful in the \code{\link[readr:read_delim]{readr::read_delim()}} functions to read from the clipboard.
 }
 \examples{
-clipboard()
+\dontrun{
+  clipboard()
+}
 }
 \seealso{
 readr::read_delim
