@@ -16,6 +16,7 @@
 #'    Using a value of [clipboard()] will read from the system clipboard.
 #'
 #' @param skip Number of lines to skip before reading data.
+#' @return A source object
 #' @keywords internal
 #' @export
 #' @examples
@@ -232,6 +233,8 @@ empty_file <- function(x) {
 #' This is useful in the [readr::read_delim()] functions to read from the clipboard.
 #' @seealso readr::read_delim
 #' @export
+#' @examples
+#' clipboard()
 clipboard <- function() {
   I(paste0(clipr::read_clip(), collapse = "\n"))
 }

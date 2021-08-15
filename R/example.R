@@ -4,6 +4,7 @@
 #' directory. This function make them easy to access
 #'
 #' @param file Name of file. If `NULL`, the example files will be listed.
+#' @return A file path or a vector of file names
 #' @export
 #' @examples
 #' meltr_example()

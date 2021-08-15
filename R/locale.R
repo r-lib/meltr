@@ -29,6 +29,7 @@
 #'   "US/Eastern", "US/Central" etc.
 #' @param encoding Default encoding. This only affects how the file is
 #'   read - meltr always converts the output to UTF-8.
+#' @return A locale object
 #' @export
 #' @examples
 #' locale()

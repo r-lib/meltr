@@ -32,6 +32,9 @@ NULL
 #' @param skip_empty_rows Should blank rows be ignored altogether? i.e. If this
 #'   option is `TRUE` then blank rows will not be represented at all.  If it is
 #'   `FALSE` then they will be represented by `NA` values in all the columns.
+#' @return A tokeenizer object
+#' @examples
+#' tokenizer_delim(",")
 tokenizer_delim <- function(delim, quote = '"', na = "NA", quoted_na = TRUE, comment = "",
                             trim_ws = TRUE,
                             escape_double = TRUE,

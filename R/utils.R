@@ -13,7 +13,11 @@ is.connection <- function(x) inherits(x, "connection")
 #' - The code is run in a non-interactive session (`interactive()` is `FALSE`).
 #' - The code is run in an RStudio notebook chunk.
 #' - The code is run by knitr / rmarkdown.
+#'
+#' @return A logical value
 #' @export
+#' @examples
+#' show_progress()
 show_progress <- function() {
   isTRUE(getOption("readr.show_progress")) && # user disables progress bar
     interactive() && # an interactive session

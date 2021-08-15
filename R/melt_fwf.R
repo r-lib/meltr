@@ -17,6 +17,16 @@
 #'   [fwf_widths()] or [fwf_positions()]. To read in only selected fields,
 #'   use [fwf_positions()]. If the width of the last column is variable (a
 #'   ragged fwf file), supply the last end position as NA.
+#' @return A [tibble()] of four columns:
+#'   * `row`, the row that the token comes from in the original file
+#'   * `col`, the column that the token comes from in the original file
+#'   * `data_type`, the data type of the token, e.g. `"integer"`, `"character"`,
+#'     `"date"`, guessed in a similar way to the `guess_parser()` function.
+#'   * `value`, the token itself as a character string, unchanged from its
+#'     representation in the original file.
+#'
+#'   If there are parsing problems, a warning tells you
+#'   how many, and you can retrieve the details with [problems()].
 #' @export
 #' @examples
 #' fwf_sample <- meltr_example("fwf-sample.txt")

@@ -20,6 +20,16 @@
 #'   tabular data with non-standard formatting.  [readr::read_table()] is the
 #'   conventional way to read tabular data from whitespace-separated files.
 #' @inheritParams readr::read_table
+#' @return A [tibble()] of four columns:
+#'   * `row`, the row that the token comes from in the original file
+#'   * `col`, the column that the token comes from in the original file
+#'   * `data_type`, the data type of the token, e.g. `"integer"`, `"character"`,
+#'     `"date"`, guessed in a similar way to the `guess_parser()` function.
+#'   * `value`, the token itself as a character string, unchanged from its
+#'     representation in the original file.
+#'
+#'   If there are parsing problems, a warning tells you
+#'   how many, and you can retrieve the details with [problems()].
 #' @export
 #' @examples
 #' # One corner from http://www.masseyratings.com/cf/compare.htm

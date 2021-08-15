@@ -8,8 +8,10 @@
 #' @param mon,mon_ab Full and abbreviated month names.
 #' @param day,day_ab Full and abbreviated week day names. Starts with Sunday.
 #' @param am_pm Names used for AM and PM.
+#' @return A date names object
 #' @export
 #' @examples
+#' date_names(mon = LETTERS[1:12], day = letters[1:7])
 #' date_names_lang("en")
 #' date_names_lang("ko")
 #' date_names_lang("fr")
