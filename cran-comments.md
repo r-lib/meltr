@@ -11,8 +11,9 @@ win-builder        | devel |         |        |     |     |
 
 ## R CMD check results
 
-0 errors | 0 warnings | 1 note
+0 errors | 0 warnings | 3 notes
 
 * New submission
 * Installed size is  5.4Mb; sub-directories of 1Mb or more: libs 5.0Mb.  This is
   compiled code.
+* Possibly misspelled words in DESCRIPTION.  These are file type suffixes.
