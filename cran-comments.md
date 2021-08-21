@@ -1,3 +1,5 @@
+This is a resubmission.  An unintended file has been removed.
+
 ## Test environments
 
 Operating system   | devel | release | oldrel | 3.6 | 3.5 | 3.4
