@@ -34,6 +34,13 @@ You can install the released version of meltr from CRAN with:
 install.packages("meltr")
 ```
 
+Or you can install the development version with:
+
+``` r
+# install.packages("devtools")
+devtools::install_github("r-lib/meltr")
+```
+
 ## The problem with non-rectangular data
 
 Here’s a contrived example that breaks two assumptions made by common
@@ -54,7 +61,7 @@ non-rectangular,data,NA", "messy.csv")
 library(meltr)
 
 melt_csv("messy.csv")
-#> # A tibble: 12 x 4
+#> # A tibble: 12 × 4
 #>      row   col data_type value          
 #>    <dbl> <dbl> <chr>     <chr>          
 #>  1     1     1 character Help           
@@ -101,7 +108,7 @@ data <- melt_csv("messy.csv")
 
 data %>%
   filter(data_type == "character")
-#> # A tibble: 6 x 4
+#> # A tibble: 6 × 4
 #>     row   col data_type value          
 #>   <dbl> <dbl> <chr>     <chr>          
 #> 1     1     1 character Help           
@@ -117,7 +124,7 @@ Or find if there are missing entries.
 ``` r
 data %>%
   filter(data_type == "missing")
-#> # A tibble: 2 x 4
+#> # A tibble: 2 × 4
 #>     row   col data_type value
 #>   <dbl> <dbl> <chr>     <chr>
 #> 1     1     2 missing   <NA> 

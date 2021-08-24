@@ -40,6 +40,13 @@ You can install the released version of meltr from CRAN with:
 install.packages("meltr")
 ```
 
+Or you can install the development version with:
+
+```r
+# install.packages("devtools")
+devtools::install_github("r-lib/meltr")
+```
+
 ## The problem with non-rectangular data
 
 Here's a contrived example that breaks two assumptions made by common tools like `readr::read_csv()`.
