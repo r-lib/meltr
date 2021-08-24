@@ -33,7 +33,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">meltr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.0.9000</span>
       </span>
     </div>
 
@@ -47,6 +47,9 @@
 </li>
 <li>
   <a href="reference/index.html">Reference</a>
+</li>
+<li>
+  <a href="news/index.html">Changelog</a>
 </li>
       </ul>
 <ul class="nav navbar-nav navbar-right">
@@ -84,6 +87,10 @@
 <p>You can install the released version of meltr from CRAN with:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"meltr"</span><span class="op">)</span></code></pre></div>
+<p>Or you can install the development version with:</p>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># install.packages("devtools")</span>
+<span class="fu">devtools</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"r-lib/meltr"</span><span class="op">)</span></code></pre></div>
 </div>
 <div id="the-problem-with-non-rectangular-data" class="section level2">
 <h2 class="hasAnchor">
@@ -94,7 +101,7 @@
 <li>There are mixed data types within each column.</li>
 </ol>
 <p>In contrast, the <code><a href="reference/melt_delim.html">melt_csv()</a></code> function reads the file one cell at a time, importing each cell of the file into a whole row of the final data frame.</p>
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/writeLines.html">writeLines</a></span><span class="op">(</span><span class="st">"Help,,007,I'm
 1960-09-30,FALSE,trapped in,7,1.21
 non-rectangular,data,NA"</span>, <span class="st">"messy.csv"</span><span class="op">)</span>
@@ -102,7 +109,7 @@ non-rectangular,data,NA"</span>, <span class="st">"messy.csv"</span><span class=
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/r-lib/meltr">meltr</a></span><span class="op">)</span>
 
 <span class="fu"><a href="reference/melt_delim.html">melt_csv</a></span><span class="op">(</span><span class="st">"messy.csv"</span><span class="op">)</span>
-<span class="co">#&gt; # A tibble: 12 x 4</span>
+<span class="co">#&gt; # A tibble: 12 × 4</span>
 <span class="co">#&gt;      row   col data_type value          </span>
 <span class="co">#&gt;    &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;     &lt;chr&gt;          </span>
 <span class="co">#&gt;  1     1     1 character Help           </span>
@@ -126,7 +133,7 @@ non-rectangular,data,NA"</span>, <span class="st">"messy.csv"</span><span class=
 </ul>
 <p>What are some ways you can you use this? To begin with, you can do some simple manipulations with ordinary functions.</p>
 <p>For example you could extract the words.</p>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op">)</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; Attaching package: 'dplyr'</span>
@@ -141,7 +148,7 @@ non-rectangular,data,NA"</span>, <span class="st">"messy.csv"</span><span class=
 
 <span class="va">data</span> <span class="op">%&gt;%</span>
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">data_type</span> <span class="op">==</span> <span class="st">"character"</span><span class="op">)</span>
-<span class="co">#&gt; # A tibble: 6 x 4</span>
+<span class="co">#&gt; # A tibble: 6 × 4</span>
 <span class="co">#&gt;     row   col data_type value          </span>
 <span class="co">#&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;     &lt;chr&gt;          </span>
 <span class="co">#&gt; 1     1     1 character Help           </span>
@@ -151,10 +158,10 @@ non-rectangular,data,NA"</span>, <span class="st">"messy.csv"</span><span class=
 <span class="co">#&gt; 5     3     1 character non-rectangular</span>
 <span class="co">#&gt; 6     3     2 character data</span></code></pre></div>
 <p>Or find if there are missing entries.</p>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">data</span> <span class="op">%&gt;%</span>
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">data_type</span> <span class="op">==</span> <span class="st">"missing"</span><span class="op">)</span>
-<span class="co">#&gt; # A tibble: 2 x 4</span>
+<span class="co">#&gt; # A tibble: 2 × 4</span>
 <span class="co">#&gt;     row   col data_type value</span>
 <span class="co">#&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;     &lt;chr&gt;</span>
 <span class="co">#&gt; 1     1     2 missing   &lt;NA&gt; </span>
@@ -167,6 +174,8 @@ non-rectangular,data,NA"</span>, <span class="st">"messy.csv"</span><span class=
     <div class="links">
 <h2>Links</h2>
 <ul class="list-unstyled">
+<li>Download from CRAN at <br><a href="https://cloud.r-project.org/package=meltr">https://​cloud.r-project.org/​package=meltr</a>
+</li>
 <li>Browse source code at <br><a href="https://github.com/r-lib/meltr/">https://​github.com/​r-lib/​meltr/​</a>
 </li>
 <li>Report a bug at <br><a href="https://github.com/r-lib/meltr/issues">https://​github.com/​r-lib/​meltr/​issues</a>
