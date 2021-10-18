@@ -7,7 +7,7 @@
 
 [![R-CMD-check](https://github.com/r-lib/meltr/workflows/R-CMD-check/badge.svg)](https://github.com/r-lib/meltr/actions)
 [![Codecov test
-coverage](https://codecov.io/gh/r-lib/meltr/branch/master/graph/badge.svg)](https://codecov.io/gh/r-lib/meltr?branch=master)
+coverage](https://codecov.io/gh/r-lib/meltr/branch/main/graph/badge.svg)](https://codecov.io/gh/r-lib/meltr?branch=main)
 <!-- badges: end -->
 
 <p align="center">
