@@ -25,7 +25,7 @@ Description: The goal of 'meltr' is to provide a fast and friendly way to
     read non-rectangular data, such as ragged forms of csv (comma-separated
     values), tsv (tab-separated values), and fwf (fixed-width format) files.
 License: MIT + file LICENSE
-URL: https://r-lib.github.io/meltr,
+URL: https://r-lib.github.io/meltr/,
     https://github.com/r-lib/meltr
 BugReports: https://github.com/r-lib/meltr/issues
 Depends:
