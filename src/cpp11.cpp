@@ -3,6 +3,7 @@
 
 
 #include "cpp11/declarations.hpp"
+#include <R_ext/Visibility.h>
 
 // CollectorGuess.cpp
 std::string collectorGuess(const cpp11::strings& input, const cpp11::list& locale_, bool guessInteger);
@@ -56,15 +57,6 @@ extern "C" SEXP _meltr_whitespaceColumns(SEXP sourceSpec, SEXP n, SEXP comment) 
 }
 
 extern "C" {
-/* .Call calls */
-extern SEXP _meltr_collectorGuess(SEXP, SEXP, SEXP);
-extern SEXP _meltr_melt_tokens_(SEXP, SEXP, SEXP, SEXP, SEXP, SEXP);
-extern SEXP _meltr_melt_tokens_chunked_(SEXP, SEXP, SEXP, SEXP, SEXP, SEXP, SEXP);
-extern SEXP _meltr_read_connection_(SEXP, SEXP, SEXP);
-extern SEXP _meltr_read_file_(SEXP, SEXP);
-extern SEXP _meltr_read_file_raw_(SEXP);
-extern SEXP _meltr_whitespaceColumns(SEXP, SEXP, SEXP);
-
 static const R_CallMethodDef CallEntries[] = {
     {"_meltr_collectorGuess",       (DL_FUNC) &_meltr_collectorGuess,       3},
     {"_meltr_melt_tokens_",         (DL_FUNC) &_meltr_melt_tokens_,         6},
@@ -77,7 +69,7 @@ static const R_CallMethodDef CallEntries[] = {
 };
 }
 
-extern "C" void R_init_meltr(DllInfo* dll){
+extern "C" attribute_visible void R_init_meltr(DllInfo* dll){
   R_registerRoutines(dll, NULL, CallEntries, NULL, NULL);
   R_useDynamicSymbols(dll, FALSE);
   R_forceSymbols(dll, TRUE);
