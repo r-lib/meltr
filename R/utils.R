@@ -109,3 +109,11 @@ register_s3_method <- function(pkg, generic, class, fun = NULL) {
     }
   )
 }
+
+# Silence R CMD check note
+#  Namespaces in Imports field not imported from:
+#    ‘R6’ ‘rlang’
+#    All declared Imports should be used.
+# See https://github.com/hadley/r-pkgs/issues/828
+fake_function_1 <- function() R6::R6Class
+fake_function_2 <- function() rlang::int

@@ -1,21 +1,9 @@
-This is a resubmission.  An unintended file has been removed.
+## Release summary
 
-## Test environments
-
-Operating system   | devel | release | oldrel | 3.6 | 3.5 | 3.4
--------------------|-------|---------|--------|-----|-----|----
-macOS Catalina     |       | release |        |     |     |
-ubuntu 20.04       |       | release |        |     |     |
-ubuntu 18.04       | devel | release | oldrel | 3.6 | 3.5 | 3.4
-fedora linux       | devel |         |        |     |     |
-Windows Server x64 | devel | release |        | 3.6 |     |
-win-builder        | devel |         |        |     |     |
+This is a patch release to address HTML5 errors in the docs.
 
 ## R CMD check results
 
-0 errors | 0 warnings | 3 notes
-
-* New submission
-* Installed size is  5.4Mb; sub-directories of 1Mb or more: libs 5.0Mb.  This is
+0 errors | 0 warnings | 1 note
+* Installed size is  5.7Mb; sub-directories of 1Mb or more: libs 5.1Mb.  This is
   compiled code.
-* Possibly misspelled words in DESCRIPTION.  These are file type suffixes.
