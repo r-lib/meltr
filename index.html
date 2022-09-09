@@ -21,6 +21,8 @@
 <![endif]-->
 </head>
 <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-home">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -33,18 +35,12 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">meltr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.0.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.0.1</span>
       </span>
     </div>
 
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-<li>
-  <a href="index.html">
-    <span class="fas fa-home fa-lg"></span>
-     
-  </a>
-</li>
 <li>
   <a href="reference/index.html">Reference</a>
 </li>
@@ -54,7 +50,7 @@
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
-  <a href="https://github.com/r-lib/meltr/">
+  <a href="https://github.com/r-lib/meltr/" class="external-link">
     <span class="fab fa-github fa-lg"></span>
      
   </a>
@@ -71,59 +67,57 @@
 
       </header><div class="row">
   <div class="contents col-md-9">
-<div id="meltr" class="section level1">
-<div class="page-header"><h1 class="hasAnchor">
-<a href="#meltr" class="anchor"></a>meltr</h1></div>
+<div class="section level1">
+<div class="page-header"><h1 id="meltr">meltr<a class="anchor" aria-label="anchor" href="#meltr"></a>
+</h1></div>
 <!-- badges: start -->
-
-<p align="center">
-<img src="https://nacnudus.github.io/duncangarmonsway/posts/2018-12-29-meltcsv/im_melting_wicked_witch_of_the_west.jpg" alt="The wicked witch of the west saying 'I'm Melting, Melting!!!!!'"></p>
+<p align="center"><img src="https://nacnudus.github.io/duncangarmonsway/posts/2018-12-29-meltcsv/im_melting_wicked_witch_of_the_west.jpg" alt="The wicked witch of the west saying 'I'm Melting, Melting!!!!!'"></p>
 <p>The goal of ‘meltr’ is to provide a fast and friendly way to read non-rectangular data (like ragged forms of ‘csv’, ‘tsv’, and ‘fwf’).</p>
-<p>Standard tools like <a href="https://readr.tidyverse.org/reference/read_delim.html"><code>readr::read_csv()</code></a> can cope to some extent with unusual inputs, like files with empty rows or newlines embedded in strings. But some files are so wacky that standard tools don’t work at all, and instead you have to take the file to pieces and reassemble to get structured data you can work with.</p>
+<p>Standard tools like <a href="https://readr.tidyverse.org/reference/read_delim.html" class="external-link"><code>readr::read_csv()</code></a> can cope to some extent with unusual inputs, like files with empty rows or newlines embedded in strings. But some files are so wacky that standard tools don’t work at all, and instead you have to take the file to pieces and reassemble to get structured data you can work with.</p>
 <p>The meltr package provides tools to do this.</p>
-<div id="installation" class="section level2">
-<h2 class="hasAnchor">
-<a href="#installation" class="anchor"></a>Installation</h2>
+<div class="section level2">
+<h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
+</h2>
 <p>You can install the released version of meltr from CRAN with:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"meltr"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"meltr"</span><span class="op">)</span></span></code></pre></div>
 <p>Or you can install the development version with:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># install.packages("devtools")</span>
-<span class="fu">devtools</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"r-lib/meltr"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># install.packages("devtools")</span></span>
+<span><span class="fu">devtools</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"r-lib/meltr"</span><span class="op">)</span></span></code></pre></div>
 </div>
-<div id="the-problem-with-non-rectangular-data" class="section level2">
-<h2 class="hasAnchor">
-<a href="#the-problem-with-non-rectangular-data" class="anchor"></a>The problem with non-rectangular data</h2>
-<p>Here’s a contrived example that breaks two assumptions made by common tools like <code><a href="https://readr.tidyverse.org/reference/read_delim.html">readr::read_csv()</a></code>.</p>
-<ol>
+<div class="section level2">
+<h2 id="the-problem-with-non-rectangular-data">The problem with non-rectangular data<a class="anchor" aria-label="anchor" href="#the-problem-with-non-rectangular-data"></a>
+</h2>
+<p>Here’s a contrived example that breaks two assumptions made by common tools like <code><a href="https://readr.tidyverse.org/reference/read_delim.html" class="external-link">readr::read_csv()</a></code>.</p>
+<ol style="list-style-type: decimal">
 <li>There are more cells in some rows than others.</li>
 <li>There are mixed data types within each column.</li>
 </ol>
 <p>In contrast, the <code><a href="reference/melt_delim.html">melt_csv()</a></code> function reads the file one cell at a time, importing each cell of the file into a whole row of the final data frame.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/writeLines.html">writeLines</a></span><span class="op">(</span><span class="st">"Help,,007,I'm
-1960-09-30,FALSE,trapped in,7,1.21
-non-rectangular,data,NA"</span>, <span class="st">"messy.csv"</span><span class="op">)</span>
-
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://r-lib.github.io/meltr/">meltr</a></span><span class="op">)</span>
-
-<span class="fu"><a href="reference/melt_delim.html">melt_csv</a></span><span class="op">(</span><span class="st">"messy.csv"</span><span class="op">)</span>
-<span class="co">#&gt; # A tibble: 12 × 4</span>
-<span class="co">#&gt;      row   col data_type value          </span>
-<span class="co">#&gt;    &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;     &lt;chr&gt;          </span>
-<span class="co">#&gt;  1     1     1 character Help           </span>
-<span class="co">#&gt;  2     1     2 missing   &lt;NA&gt;           </span>
-<span class="co">#&gt;  3     1     3 character 007            </span>
-<span class="co">#&gt;  4     1     4 character I'm            </span>
-<span class="co">#&gt;  5     2     1 date      1960-09-30     </span>
-<span class="co">#&gt;  6     2     2 logical   FALSE          </span>
-<span class="co">#&gt;  7     2     3 character trapped in     </span>
-<span class="co">#&gt;  8     2     4 integer   7              </span>
-<span class="co">#&gt;  9     2     5 double    1.21           </span>
-<span class="co">#&gt; 10     3     1 character non-rectangular</span>
-<span class="co">#&gt; 11     3     2 character data           </span>
-<span class="co">#&gt; 12     3     3 missing   &lt;NA&gt;</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/writeLines.html" class="external-link">writeLines</a></span><span class="op">(</span><span class="st">"Help,,007,I'm</span></span>
+<span><span class="st">1960-09-30,FALSE,trapped in,7,1.21</span></span>
+<span><span class="st">non-rectangular,data,NA"</span>, <span class="st">"messy.csv"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://r-lib.github.io/meltr/" class="external-link">meltr</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="reference/melt_delim.html">melt_csv</a></span><span class="op">(</span><span class="st">"messy.csv"</span><span class="op">)</span></span>
+<span><span class="co">#&gt; # A tibble: 12 × 4</span></span>
+<span><span class="co">#&gt;      row   col data_type value          </span></span>
+<span><span class="co">#&gt;    &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;     &lt;chr&gt;          </span></span>
+<span><span class="co">#&gt;  1     1     1 character Help           </span></span>
+<span><span class="co">#&gt;  2     1     2 missing   &lt;NA&gt;           </span></span>
+<span><span class="co">#&gt;  3     1     3 character 007            </span></span>
+<span><span class="co">#&gt;  4     1     4 character I'm            </span></span>
+<span><span class="co">#&gt;  5     2     1 date      1960-09-30     </span></span>
+<span><span class="co">#&gt;  6     2     2 logical   FALSE          </span></span>
+<span><span class="co">#&gt;  7     2     3 character trapped in     </span></span>
+<span><span class="co">#&gt;  8     2     4 integer   7              </span></span>
+<span><span class="co">#&gt;  9     2     5 double    1.21           </span></span>
+<span><span class="co">#&gt; 10     3     1 character non-rectangular</span></span>
+<span><span class="co">#&gt; 11     3     2 character data           </span></span>
+<span><span class="co">#&gt; 12     3     3 missing   &lt;NA&gt;</span></span></code></pre></div>
 <p>The output of <code><a href="reference/melt_delim.html">melt_csv()</a></code> gives us:</p>
 <ul>
 <li>A data frame of results – structured data about un-structured data!</li>
@@ -134,92 +128,99 @@ non-rectangular,data,NA"</span>, <span class="st">"messy.csv"</span><span class=
 <p>What are some ways you can you use this? To begin with, you can do some simple manipulations with ordinary functions.</p>
 <p>For example you could extract the words.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op">)</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; Attaching package: 'dplyr'</span>
-<span class="co">#&gt; The following objects are masked from 'package:stats':</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt;     filter, lag</span>
-<span class="co">#&gt; The following objects are masked from 'package:base':</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt;     intersect, setdiff, setequal, union</span>
-
-<span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/melt_delim.html">melt_csv</a></span><span class="op">(</span><span class="st">"messy.csv"</span><span class="op">)</span>
-
-<span class="va">data</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">data_type</span> <span class="op">==</span> <span class="st">"character"</span><span class="op">)</span>
-<span class="co">#&gt; # A tibble: 6 × 4</span>
-<span class="co">#&gt;     row   col data_type value          </span>
-<span class="co">#&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;     &lt;chr&gt;          </span>
-<span class="co">#&gt; 1     1     1 character Help           </span>
-<span class="co">#&gt; 2     1     3 character 007            </span>
-<span class="co">#&gt; 3     1     4 character I'm            </span>
-<span class="co">#&gt; 4     2     3 character trapped in     </span>
-<span class="co">#&gt; 5     3     1 character non-rectangular</span>
-<span class="co">#&gt; 6     3     2 character data</span></code></pre></div>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Attaching package: 'dplyr'</span></span>
+<span><span class="co">#&gt; The following objects are masked from 'package:stats':</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;     filter, lag</span></span>
+<span><span class="co">#&gt; The following objects are masked from 'package:base':</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;     intersect, setdiff, setequal, union</span></span>
+<span></span>
+<span><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/melt_delim.html">melt_csv</a></span><span class="op">(</span><span class="st">"messy.csv"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">data</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">data_type</span> <span class="op">==</span> <span class="st">"character"</span><span class="op">)</span></span>
+<span><span class="co">#&gt; # A tibble: 6 × 4</span></span>
+<span><span class="co">#&gt;     row   col data_type value          </span></span>
+<span><span class="co">#&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;     &lt;chr&gt;          </span></span>
+<span><span class="co">#&gt; 1     1     1 character Help           </span></span>
+<span><span class="co">#&gt; 2     1     3 character 007            </span></span>
+<span><span class="co">#&gt; 3     1     4 character I'm            </span></span>
+<span><span class="co">#&gt; 4     2     3 character trapped in     </span></span>
+<span><span class="co">#&gt; 5     3     1 character non-rectangular</span></span>
+<span><span class="co">#&gt; 6     3     2 character data</span></span></code></pre></div>
 <p>Or find if there are missing entries.</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">data</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">data_type</span> <span class="op">==</span> <span class="st">"missing"</span><span class="op">)</span>
-<span class="co">#&gt; # A tibble: 2 × 4</span>
-<span class="co">#&gt;     row   col data_type value</span>
-<span class="co">#&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;     &lt;chr&gt;</span>
-<span class="co">#&gt; 1     1     2 missing   &lt;NA&gt; </span>
-<span class="co">#&gt; 2     3     3 missing   &lt;NA&gt;</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">data</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">data_type</span> <span class="op">==</span> <span class="st">"missing"</span><span class="op">)</span></span>
+<span><span class="co">#&gt; # A tibble: 2 × 4</span></span>
+<span><span class="co">#&gt;     row   col data_type value</span></span>
+<span><span class="co">#&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;     &lt;chr&gt;</span></span>
+<span><span class="co">#&gt; 1     1     2 missing   &lt;NA&gt; </span></span>
+<span><span class="co">#&gt; 2     3     3 missing   &lt;NA&gt;</span></span></code></pre></div>
 </div>
 </div>
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <div class="links">
-<h2>Links</h2>
+<h2 data-toc-skip>Links</h2>
 <ul class="list-unstyled">
-<li>Download from CRAN at <br><a href="https://cloud.r-project.org/package=meltr">https://​cloud.r-project.org/​package=meltr</a>
-</li>
-<li>Browse source code at <br><a href="https://github.com/r-lib/meltr/">https://​github.com/​r-lib/​meltr/​</a>
-</li>
-<li>Report a bug at <br><a href="https://github.com/r-lib/meltr/issues">https://​github.com/​r-lib/​meltr/​issues</a>
-</li>
-</ul>
-</div>
-<div class="license">
-<h2>License</h2>
-<ul class="list-unstyled">
-<li><a href="LICENSE.html">Full license</a></li>
-<li><small><a href="https://opensource.org/licenses/mit-license.php">MIT</a> + file <a href="LICENSE-text.html">LICENSE</a></small></li>
-</ul>
-</div>
-<div class="developers">
-<h2>Developers</h2>
-<ul class="list-unstyled">
-<li>
-<a href="http://hadley.nz">Hadley Wickham</a> <br><small class="roles"> Author </small>  </li>
-<li>Duncan Garmonsway <br><small class="roles"> Author, maintainer </small>  <br><small>(@nacnudus)</small>
-</li>
-<li>Jim Hester <br><small class="roles"> Author </small> <a href="https://orcid.org/0000-0002-2739-7082" target="orcid.widget" aria-label="ORCID"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
-<li>
-<a href="https://www.rstudio.com"><img src="https://www.tidyverse.org/rstudio-logo.svg" alt="RStudio" height="24"></a> <br><small class="roles"> Copyright holder, funder </small>  </li>
-<li><a href="authors.html">All authors...</a></li>
+<li><a href="https://cloud.r-project.org/package=meltr" class="external-link">View on CRAN</a></li>
+<li><a href="https://github.com/r-lib/meltr/" class="external-link">Browse source code</a></li>
+<li><a href="https://github.com/r-lib/meltr/issues" class="external-link">Report a bug</a></li>
 </ul>
 </div>
 
-  <div class="dev-status">
-<h2>Dev status</h2>
+<div class="license">
+<h2 data-toc-skip>License</h2>
 <ul class="list-unstyled">
-<li><a href="https://github.com/r-lib/meltr/actions"><img src="https://github.com/r-lib/meltr/workflows/R-CMD-check/badge.svg" alt="R-CMD-check"></a></li>
-<li><a href="https://codecov.io/gh/r-lib/meltr?branch=main"><img src="https://codecov.io/gh/r-lib/meltr/branch/main/graph/badge.svg" alt="Codecov test coverage"></a></li>
+<li><a href="LICENSE.html">Full license</a></li>
+<li><small><a href="https://opensource.org/licenses/mit-license.php" class="external-link">MIT</a> + file <a href="LICENSE-text.html">LICENSE</a></small></li>
 </ul>
 </div>
+
+
+<div class="citation">
+<h2 data-toc-skip>Citation</h2>
+<ul class="list-unstyled">
+<li><a href="authors.html#citation">Citing meltr</a></li>
+</ul>
 </div>
+
+<div class="developers">
+<h2 data-toc-skip>Developers</h2>
+<ul class="list-unstyled">
+<li>Hadley Wickham <br><small class="roles"> Author </small>  </li>
+<li>Duncan Garmonsway <br><small class="roles"> Author, maintainer </small>  </li>
+<li>Jim Hester <br><small class="roles"> Author </small> <a href="https://orcid.org/0000-0002-2739-7082" target="orcid.widget" aria-label="ORCID" class="external-link"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
+<li>RStudio <br><small class="roles"> Copyright holder, funder </small>  </li>
+<li><a href="authors.html">More about authors...</a></li>
+</ul>
+</div>
+
+<div class="dev-status">
+<h2 data-toc-skip>Dev status</h2>
+<ul class="list-unstyled">
+<li><a href="https://github.com/r-lib/meltr/actions" class="external-link"><img src="https://github.com/r-lib/meltr/workflows/R-CMD-check/badge.svg" alt="R-CMD-check"></a></li>
+<li><a href="https://codecov.io/gh/r-lib/meltr?branch=main" class="external-link"><img src="https://codecov.io/gh/r-lib/meltr/branch/main/graph/badge.svg" alt="Codecov test coverage"></a></li>
+</ul>
+</div>
+
+  </div>
 </div>
 
 
       <footer><div class="copyright">
-  <p>Developed by <a href="http://hadley.nz">Hadley Wickham</a>, Duncan Garmonsway, Jim Hester, <a href="https://www.rstudio.com"><img src="https://www.tidyverse.org/rstudio-logo.svg" alt="RStudio" height="24"></a>.</p>
+  <p></p>
+<p>Developed by Hadley Wickham, Duncan Garmonsway, Jim Hester, RStudio.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
+  <p></p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer>
@@ -227,6 +228,8 @@ non-rectangular,data,NA"</span>, <span class="st">"messy.csv"</span><span class=
 
   
 
+
+  
 
   </body>
 </html>
