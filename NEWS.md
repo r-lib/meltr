@@ -1,4 +1,4 @@
-# meltr (development version)
+# meltr 1.0.1
 
 * Fix buffer overflow when trying to parse a field that is over 64 characters long (#10)
 
