@@ -1,6 +1,6 @@
 ## Release summary
 
-This is a patch release to address HTML5 errors in the docs.
+This is resubmission, having corrected some URLs.
 
 ## R CMD check results
 
