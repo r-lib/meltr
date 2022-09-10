@@ -5,3 +5,4 @@
 ^README\.Rmd$
 ^\.covrignore$
 ^cran-comments\.md$
+^CRAN-SUBMISSION$

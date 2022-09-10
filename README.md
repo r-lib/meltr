@@ -7,7 +7,7 @@
 
 [![R-CMD-check](https://github.com/r-lib/meltr/workflows/R-CMD-check/badge.svg)](https://github.com/r-lib/meltr/actions)
 [![Codecov test
-coverage](https://codecov.io/gh/r-lib/meltr/branch/main/graph/badge.svg)](https://codecov.io/gh/r-lib/meltr?branch=main)
+coverage](https://codecov.io/gh/r-lib/meltr/branch/main/graph/badge.svg)](https://app.codecov.io/gh/r-lib/meltr?branch=main)
 <!-- badges: end -->
 
 <p align="center">
@@ -80,13 +80,13 @@ melt_csv("messy.csv")
 
 The output of `melt_csv()` gives us:
 
--   A data frame of results – structured data about un-structured data!
--   Rows of data corresponding to cells of the input data.
--   Empty cells such as the cell on row 1, but not missing cells at the
-    ends of rows 1 and 3.
--   The raw, unconverted data, no data type conversion is attempted –
-    every value is imported as a string, and the `data_type` column
-    merely gives meltr’s best guess of what the data types ought to be.
+- A data frame of results – structured data about un-structured data!
+- Rows of data corresponding to cells of the input data.
+- Empty cells such as the cell on row 1, but not missing cells at the
+  ends of rows 1 and 3.
+- The raw, unconverted data, no data type conversion is attempted –
+  every value is imported as a string, and the `data_type` column merely
+  gives meltr’s best guess of what the data types ought to be.
 
 What are some ways you can you use this? To begin with, you can do some
 simple manipulations with ordinary functions.
