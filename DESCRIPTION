@@ -29,12 +29,11 @@ URL: https://r-lib.github.io/meltr/,
     https://github.com/r-lib/meltr
 BugReports: https://github.com/r-lib/meltr/issues
 Depends:
-    R (>= 2.10)
+    R (>= 2.10),
+    R6
 Imports:
     cli,
     methods,
-    R6,
-    rlang,
     tibble
 Suggests:
     clipr,
