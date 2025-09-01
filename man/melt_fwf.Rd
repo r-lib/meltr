@@ -105,7 +105,7 @@ positions. The elements of \code{...} are used to construct a data frame
 with or or two rows as above.}
 }
 \value{
-A \code{\link[=tibble]{tibble()}} of four columns:
+A \code{\link[tibble:tibble]{tibble::tibble()}} of four columns:
 \itemize{
 \item \code{row}, the row that the token comes from in the original file
 \item \code{col}, the column that the token comes from in the original file

@@ -59,6 +59,7 @@ option to \code{character()} to indicate no missing values.}
 \item{n_max}{Maximum number of lines to read.}
 
 \item{guess_max}{Maximum number of lines to use for guessing column types.
+Will never use more than the number of lines read.
 See \code{vignette("column-types", package = "readr")} for more details.}
 
 \item{progress}{Display a progress bar? By default it will only display
@@ -74,7 +75,7 @@ option is \code{TRUE} then blank rows will not be represented at all.  If it is
 \code{FALSE} then they will be represented by \code{NA} values in all the columns.}
 }
 \value{
-A \code{\link[=tibble]{tibble()}} of four columns:
+A \code{\link[tibble:tibble]{tibble::tibble()}} of four columns:
 \itemize{
 \item \code{row}, the row that the token comes from in the original file
 \item \code{col}, the column that the token comes from in the original file
