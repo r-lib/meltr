@@ -12,6 +12,13 @@ extern "C" SEXP _meltr_collectorGuess(SEXP input, SEXP locale_, SEXP guessIntege
     return cpp11::as_sexp(collectorGuess(cpp11::as_cpp<cpp11::decay_t<const cpp11::strings&>>(input), cpp11::as_cpp<cpp11::decay_t<const cpp11::list&>>(locale_), cpp11::as_cpp<cpp11::decay_t<bool>>(guessInteger)));
   END_CPP11
 }
+// TokenizerFwf.cpp
+cpp11::list whitespaceColumns(const cpp11::list& sourceSpec, int n, std::string comment);
+extern "C" SEXP _meltr_whitespaceColumns(SEXP sourceSpec, SEXP n, SEXP comment) {
+  BEGIN_CPP11
+    return cpp11::as_sexp(whitespaceColumns(cpp11::as_cpp<cpp11::decay_t<const cpp11::list&>>(sourceSpec), cpp11::as_cpp<cpp11::decay_t<int>>(n), cpp11::as_cpp<cpp11::decay_t<std::string>>(comment)));
+  END_CPP11
+}
 // connection.cpp
 std::string read_connection_(const cpp11::sexp& con, std::string filename, int chunk_size);
 extern "C" SEXP _meltr_read_connection_(SEXP con, SEXP filename, SEXP chunk_size) {
@@ -46,13 +53,6 @@ extern "C" SEXP _meltr_melt_tokens_chunked_(SEXP sourceSpec, SEXP callback, SEXP
   BEGIN_CPP11
     melt_tokens_chunked_(cpp11::as_cpp<cpp11::decay_t<const cpp11::list&>>(sourceSpec), cpp11::as_cpp<cpp11::decay_t<const cpp11::environment&>>(callback), cpp11::as_cpp<cpp11::decay_t<int>>(chunkSize), cpp11::as_cpp<cpp11::decay_t<const cpp11::list&>>(tokenizerSpec), cpp11::as_cpp<cpp11::decay_t<const cpp11::list&>>(colSpecs), cpp11::as_cpp<cpp11::decay_t<const cpp11::list&>>(locale_), cpp11::as_cpp<cpp11::decay_t<bool>>(progress));
     return R_NilValue;
-  END_CPP11
-}
-// TokenizerFwf.cpp
-cpp11::list whitespaceColumns(const cpp11::list& sourceSpec, int n, std::string comment);
-extern "C" SEXP _meltr_whitespaceColumns(SEXP sourceSpec, SEXP n, SEXP comment) {
-  BEGIN_CPP11
-    return cpp11::as_sexp(whitespaceColumns(cpp11::as_cpp<cpp11::decay_t<const cpp11::list&>>(sourceSpec), cpp11::as_cpp<cpp11::decay_t<int>>(n), cpp11::as_cpp<cpp11::decay_t<std::string>>(comment)));
   END_CPP11
 }
 

@@ -4,6 +4,10 @@ collectorGuess <- function(input, locale_, guessInteger) {
   .Call(`_meltr_collectorGuess`, input, locale_, guessInteger)
 }
 
+whitespaceColumns <- function(sourceSpec, n, comment) {
+  .Call(`_meltr_whitespaceColumns`, sourceSpec, n, comment)
+}
+
 read_connection_ <- function(con, filename, chunk_size) {
   .Call(`_meltr_read_connection_`, con, filename, chunk_size)
 }
@@ -22,8 +26,4 @@ melt_tokens_ <- function(sourceSpec, tokenizerSpec, colSpecs, locale_, n_max, pr
 
 melt_tokens_chunked_ <- function(sourceSpec, callback, chunkSize, tokenizerSpec, colSpecs, locale_, progress) {
   invisible(.Call(`_meltr_melt_tokens_chunked_`, sourceSpec, callback, chunkSize, tokenizerSpec, colSpecs, locale_, progress))
-}
-
-whitespaceColumns <- function(sourceSpec, n, comment) {
-  .Call(`_meltr_whitespaceColumns`, sourceSpec, n, comment)
 }
