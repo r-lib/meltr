@@ -86,7 +86,7 @@ melt_delimited_chunked <- generate_melt_delimited_chunked(melt_delimited)
 #' @inheritParams readr::read_delim_chunked
 #' @param callback A callback function to call on each chunk
 #' @param chunk_size The number of rows to include in each chunk
-#' @return A [tibble()] of four columns:
+#' @return A [tibble::tibble()] of four columns:
 #'   * `row`, the row that the token comes from in the original file
 #'   * `col`, the column that the token comes from in the original file
 #'   * `data_type`, the data type of the token, e.g. `"integer"`, `"character"`,

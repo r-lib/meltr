@@ -17,7 +17,7 @@
 #'   [fwf_widths()] or [fwf_positions()]. To read in only selected fields,
 #'   use [fwf_positions()]. If the width of the last column is variable (a
 #'   ragged fwf file), supply the last end position as NA.
-#' @return A [tibble()] of four columns:
+#' @return A [tibble::tibble()] of four columns:
 #'   * `row`, the row that the token comes from in the original file
 #'   * `col`, the column that the token comes from in the original file
 #'   * `data_type`, the data type of the token, e.g. `"integer"`, `"character"`,

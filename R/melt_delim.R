@@ -9,7 +9,7 @@
 #' respectively. `melt_csv2()` uses `;` for the field separator and `,` for the
 #' decimal point. This is common in some European countries.
 #' @inheritParams readr::read_delim
-#' @return A [tibble()] of four columns:
+#' @return A [tibble::tibble()] of four columns:
 #'   * `row`, the row that the token comes from in the original file
 #'   * `col`, the column that the token comes from in the original file
 #'   * `data_type`, the data type of the token, e.g. `"integer"`, `"character"`,

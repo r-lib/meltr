@@ -20,7 +20,7 @@
 #'   tabular data with non-standard formatting.  [readr::read_table()] is the
 #'   conventional way to read tabular data from whitespace-separated files.
 #' @inheritParams readr::read_table
-#' @return A [tibble()] of four columns:
+#' @return A [tibble::tibble()] of four columns:
 #'   * `row`, the row that the token comes from in the original file
 #'   * `col`, the column that the token comes from in the original file
 #'   * `data_type`, the data type of the token, e.g. `"integer"`, `"character"`,
