@@ -1,6 +1,6 @@
 Package: meltr
 Title: Read Non-Rectangular Text Data
-Version: 1.0.2
+Version: 1.0.3
 Authors@R:
     c(person(given = "Hadley",
              family = "Wickham",

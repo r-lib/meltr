@@ -1,3 +1,7 @@
+# meltr 1.0.3
+
+* Fix CRAN warnings
+
 # meltr 1.0.2
 
 * Fix CRAN warnings
