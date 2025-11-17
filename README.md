@@ -5,12 +5,13 @@
 
 <!-- badges: start -->
 
-[![R-CMD-check](https://github.com/r-lib/meltr/workflows/R-CMD-check/badge.svg)](https://github.com/r-lib/meltr/actions)
+[![R-CMD-check](https://github.com/r-lib/meltr/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/r-lib/meltr/actions/workflows/R-CMD-check.yaml)
 [![Codecov test
-coverage](https://codecov.io/gh/r-lib/meltr/branch/main/graph/badge.svg)](https://app.codecov.io/gh/r-lib/meltr?branch=main)
+coverage](https://codecov.io/gh/r-lib/meltr/graph/badge.svg)](https://app.codecov.io/gh/r-lib/meltr)
 <!-- badges: end -->
 
 <p align="center">
+
 <img src="https://nacnudus.github.io/duncangarmonsway/posts/2018-12-29-meltcsv/im_melting_wicked_witch_of_the_west.jpg" alt="The wicked witch of the west saying 'I'm Melting, Melting!!!!!'">
 </p>
 
@@ -59,6 +60,8 @@ writeLines("Help,,007,I'm
 non-rectangular,data,NA", "messy.csv")
 
 library(meltr)
+#> Loading required package: R6
+#> Loading required package: rlang
 
 melt_csv("messy.csv")
 #> # A tibble: 12 × 4
